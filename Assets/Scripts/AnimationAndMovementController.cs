@@ -50,6 +50,24 @@ public class AnimationAndMovementController : MonoBehaviour
     private int _isJumpingHash;
     private bool _isJumpAnimating = false;
 
+    // PickUp variables
+    [Space]
+    [SerializeField]
+    private LayerMask _pickupLayer;
+    [SerializeField]
+    private Transform _pickupTarget;
+    [SerializeField]
+    private float _pickupRange;
+    [SerializeField]
+    private Transform _robotHead;
+    //[SerializeField]
+    //private Transform _robotHeadGround;
+    [SerializeField]
+    private float _throwingForce;
+    private bool _isPickUpPressed;
+    private Rigidbody _currentObjectRigidbody;
+    private Collider _currentObjectCollider;
+
 
     // Awake is called earlier than Start in Unity's event life cycle
     private void Awake()
@@ -72,6 +90,8 @@ public class AnimationAndMovementController : MonoBehaviour
         _playerInput.CharacterControls.Run.canceled += OnRun;
         _playerInput.CharacterControls.Jump.started += OnJump;
         _playerInput.CharacterControls.Jump.canceled += OnJump;
+        //_playerInput.CharacterControls.TakeHead.started += OnPickUp;
+        //_playerInput.CharacterControls.TakeHead.canceled += OnPickUp;
 
         SetupJumpVariables();
     }
@@ -102,6 +122,10 @@ public class AnimationAndMovementController : MonoBehaviour
         _currentRunMovement.z = _currentMovementInput.y * _runMultiplayer;
         _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
     }
+    //private void OnPickUp(InputAction.CallbackContext context)
+    //{
+    //    _isPickUpPressed = context.ReadValueAsButton();
+    //}
 
     private void HandleRotation()
     {
@@ -176,6 +200,7 @@ public class AnimationAndMovementController : MonoBehaviour
             _appliedMovement.y = (previousYVelocity + _currentMovement.y) * .5f;
         }
     }
+
     private void HandleJump()
     {
         if (!_isJumping && _characterController.isGrounded && _isJumpPressed)
@@ -191,6 +216,65 @@ public class AnimationAndMovementController : MonoBehaviour
         else if (!_isJumpPressed && _isJumping && _characterController.isGrounded)
         {
             _isJumping = false;
+        }
+    }
+
+    private void HandlePickUp()
+    {
+        if (/*_isPickUpPressed*/Input.GetKeyDown(KeyCode.E))
+        {
+            var pickupRay = new Ray(_pickupTarget.transform.position, _pickupTarget.transform.forward);
+
+            if (Physics.Raycast(pickupRay, out RaycastHit hitInfo, _pickupRange, _pickupLayer))
+            {
+                if (_currentObjectRigidbody)
+                {
+                    _currentObjectRigidbody.isKinematic = false;
+                    _currentObjectCollider.enabled = true;
+                    _currentObjectRigidbody = hitInfo.rigidbody;
+                    _currentObjectCollider = hitInfo.collider;
+                    // Enable physics for throwing head
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
+                }
+                else
+                {
+                    _currentObjectRigidbody = hitInfo.rigidbody;
+                    _currentObjectCollider = hitInfo.collider;
+                    // Disable physics for picked head
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
+                }
+                return;
+            }
+
+            if (_currentObjectRigidbody)
+            {
+                _currentObjectRigidbody.isKinematic = false;
+                _currentObjectCollider.enabled = true;
+                _currentObjectRigidbody = null;
+                _currentObjectCollider = null;
+            }
+        }
+        // Throw the head
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (_currentObjectRigidbody)
+            {
+                _currentObjectRigidbody.isKinematic = false;
+                _currentObjectCollider.enabled = true;
+
+                _currentObjectRigidbody.AddForce(_pickupTarget.transform.forward * _throwingForce, ForceMode.Impulse);
+
+                _currentObjectRigidbody = null;
+                _currentObjectCollider = null;
+            }
+        }
+
+        if (_currentObjectRigidbody)
+        {
+            _currentObjectRigidbody.position = _robotHead.position;
+            _currentObjectRigidbody.rotation = _robotHead.rotation;
         }
     }
 
@@ -214,6 +298,7 @@ public class AnimationAndMovementController : MonoBehaviour
 
         HandleGravity();
         HandleJump();
+        HandlePickUp();
     }
 
     private void OnEnable()
