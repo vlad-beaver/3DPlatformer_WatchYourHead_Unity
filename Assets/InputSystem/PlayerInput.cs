@@ -71,6 +71,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DropHead"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3c21bca-b90a-41bf-aadb-b53af758ea49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +225,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""TakeHead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2c25ea6-6455-4f6d-89b6-70d3dd744c8d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a5b77e7-fbbd-448e-bf8a-b7ff9036cdca"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +260,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterControls_MouseLook = m_CharacterControls.FindAction("MouseLook", throwIfNotFound: true);
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
         m_CharacterControls_TakeHead = m_CharacterControls.FindAction("TakeHead", throwIfNotFound: true);
+        m_CharacterControls_DropHead = m_CharacterControls.FindAction("DropHead", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +325,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_MouseLook;
     private readonly InputAction m_CharacterControls_Jump;
     private readonly InputAction m_CharacterControls_TakeHead;
+    private readonly InputAction m_CharacterControls_DropHead;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -302,6 +335,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @MouseLook => m_Wrapper.m_CharacterControls_MouseLook;
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
         public InputAction @TakeHead => m_Wrapper.m_CharacterControls_TakeHead;
+        public InputAction @DropHead => m_Wrapper.m_CharacterControls_DropHead;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -326,6 +360,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @TakeHead.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTakeHead;
                 @TakeHead.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTakeHead;
                 @TakeHead.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTakeHead;
+                @DropHead.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnDropHead;
+                @DropHead.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnDropHead;
+                @DropHead.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnDropHead;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -345,6 +382,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @TakeHead.started += instance.OnTakeHead;
                 @TakeHead.performed += instance.OnTakeHead;
                 @TakeHead.canceled += instance.OnTakeHead;
+                @DropHead.started += instance.OnDropHead;
+                @DropHead.performed += instance.OnDropHead;
+                @DropHead.canceled += instance.OnDropHead;
             }
         }
     }
@@ -356,5 +396,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnTakeHead(InputAction.CallbackContext context);
+        void OnDropHead(InputAction.CallbackContext context);
     }
 }

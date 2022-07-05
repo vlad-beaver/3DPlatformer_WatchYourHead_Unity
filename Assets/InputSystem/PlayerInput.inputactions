@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DropHead",
+                    "type": "Button",
+                    "id": "e3c21bca-b90a-41bf-aadb-b53af758ea49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -192,6 +201,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "TakeHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2c25ea6-6455-4f6d-89b6-70d3dd744c8d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a5b77e7-fbbd-448e-bf8a-b7ff9036cdca",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropHead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
