@@ -55,3 +55,15 @@ The following packages were added:
   com.unity.ext.nunit@1.0.0
   com.unity.postprocessing@2.2.2
   com.unity.recorder@2.0.3-preview.1
+
+=== Tue Jul  5 12:42:59 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.15.15 to 1.15.18
+  com.unity.ext.nunit from version 1.0.0 to 1.0.6
+  com.unity.ide.visualstudio from version 2.0.14 to 2.0.15
+  com.unity.postprocessing from version 2.2.2 to 2.3.0
+  com.unity.recorder from version 2.0.3-preview.1 to 2.5.7
