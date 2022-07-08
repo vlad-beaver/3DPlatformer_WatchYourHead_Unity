@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Infrastructure.Abstractables;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class AnimationAndMovementController : MonoBehaviour
+public class AnimationAndMovementController : PuzzlePlayer
 {
     // Declare reference variables
     private PlayerInput _playerInput;
@@ -351,5 +353,20 @@ public class AnimationAndMovementController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public override void Activate()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Deactivate()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Kill()
+    {
+        SceneManager.LoadScene("RobotSandBox");
     }
 }
