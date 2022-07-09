@@ -46,7 +46,7 @@ public class AnimationAndMovementController : PuzzlePlayer
     private bool _isJumpPressed = false;
     private float _initialJumpVelocity;
     [SerializeField]
-    private float _maxJumpHeight = 2.0f;
+    private float _maxJumpHeight = 1.0f;
     private readonly float _maxJumpTime = 0.75f;
     private bool _isJumping = false;
     private int _isJumpingHash;
@@ -64,14 +64,13 @@ public class AnimationAndMovementController : PuzzlePlayer
     private Transform _robotHead;
     [SerializeField]
     private Transform _robotHeadGround;
-    [SerializeField]
-    private float _throwingForce;
     private bool _isPickUpPressed = false;
     private bool _isDropDownPressed = false;
     private Rigidbody _currentObjectRigidbody;
     private Collider _currentObjectCollider;
     private int _isTakingHeadHash;
     private int _isDropDownHeadHash;
+    private int _isHavingHeadHash;
     private bool _isTakingHeadAnimating = false;
 
 
@@ -88,6 +87,7 @@ public class AnimationAndMovementController : PuzzlePlayer
         _isJumpingHash = Animator.StringToHash("isJumping");
         _isTakingHeadHash = Animator.StringToHash("isTakingHead");
         _isDropDownHeadHash = Animator.StringToHash("isDropDownHead");
+        _isHavingHeadHash = Animator.StringToHash("isHavingHead");
 
         // Set the player input callbacks
         _playerInput.CharacterControls.Move.started += OnMovementInput;
@@ -167,6 +167,8 @@ public class AnimationAndMovementController : PuzzlePlayer
         bool isRunning = _animator.GetBool(_isRunningHash);
         bool isTakingHead = _animator.GetBool(_isTakingHeadHash);
         bool isDropDownHead = _animator.GetBool(_isDropDownHeadHash);
+        bool isHavingHead = _animator.GetBool(_isHavingHeadHash);
+
         // Start walking if movement pressed is true and not already walking
         if (_isMovementPressed && !isWalking)
         {
@@ -188,7 +190,7 @@ public class AnimationAndMovementController : PuzzlePlayer
             _animator.SetBool(_isRunningHash, false);
         }
         // Start taking head after robot takes head and only if he doesn't have head
-        else if ((_isPickUpPressed && !isTakingHead) && !_isTakingHeadAnimating)
+        else if ((_isPickUpPressed && !isTakingHead) && !_isTakingHeadAnimating && !_currentObjectRigidbody)
         {
             _animator.SetBool(_isTakingHeadHash, true);
         }
@@ -208,6 +210,17 @@ public class AnimationAndMovementController : PuzzlePlayer
         {
             _animator.SetBool(_isDropDownHeadHash, false);
         }
+        // Enable animations for headHoldingInHands if robot takes head
+        else if (_currentObjectRigidbody && !isHavingHead)
+        {
+            _animator.SetBool(_isHavingHeadHash, true);
+        }
+        // Disable animations for headHoldingInHands if robot takes head
+        else if (!_currentObjectRigidbody && isHavingHead)
+        {
+            _animator.SetBool(_isHavingHeadHash, false);
+        }
+
     }
 
     private void HandleGravity()
