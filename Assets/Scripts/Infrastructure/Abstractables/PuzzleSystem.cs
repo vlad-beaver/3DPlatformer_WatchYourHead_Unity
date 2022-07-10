@@ -11,10 +11,6 @@ namespace Assets.Scripts.Infrastructure.Abstractables
     {
         public event Action OnCompleted;
 
-        public event Action OnInitialized;
-
-        public event Action OnFailed;
-
 #if UNITY_EDITOR
         private IEnumerable<PuzzleComponent> _components;
 
@@ -40,32 +36,15 @@ namespace Assets.Scripts.Infrastructure.Abstractables
                     }
                 });
 
-            Gizmos.color = Color.red;
-            List<PuzzleTrap> traps = _components.OfType<PuzzleTrap>().ToList();
-            traps.ForEach(_ => Gizmos.DrawLine(transform.position, _.transform.position));
-
-            Gizmos.color = Color.green;
-            List<PuzzleExit> exits = _components.OfType<PuzzleExit>().ToList();
-            exits.ForEach(_ => Gizmos.DrawLine(transform.position, _.transform.position));
-
-            Gizmos.color = Color.cyan;
-            List<PuzzleInteractable> interactables = _components.OfType<PuzzleInteractable>().ToList();
-            interactables.ForEach(_ => Gizmos.DrawLine(transform.position, _.transform.position));
-
             Gizmos.color = Color.white;
             _components
-                .Except(traps).Except(exits).Except(interactables)
                 .ToList()
                 .ForEach(_ => Gizmos.DrawLine(transform.position, _.transform.position));
         }
 #endif
 
-        protected virtual void Complete() => OnCompleted?.Invoke();
+        protected virtual void TriggerCompleteEvent() => OnCompleted?.Invoke();
 
-        protected virtual void Initialize() => OnInitialized?.Invoke();
-
-        protected virtual void Fail() => OnFailed?.Invoke();
-
-        public abstract void Notify(PuzzleInteractable sender, EventArgs args);
+        public abstract void Notify(PuzzleComponent sender, EventArgs args);
     }
 }

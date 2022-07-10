@@ -358,14 +358,7 @@ public class AnimationAndMovementController : PuzzlePlayer
 
     private void OnApplicationFocus(bool focus)
     {
-        if (focus)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        Cursor.lockState = focus ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     public override void Activate()
