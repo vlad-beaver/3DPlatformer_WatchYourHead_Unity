@@ -681,7 +681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onComplete: 0
-  _puzzleComponent: {fileID: 432351082193157743}
+  _puzzleComponents:
+  - {fileID: 432351082193157742}
   _onTriggerEnter: 1
   _onTriggerExit: 0
 --- !u!114 &432351082193157743

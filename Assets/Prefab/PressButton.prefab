@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4829784064180479283}
   - component: {fileID: 7821614989877888257}
   - component: {fileID: 8377149143837673221}
-  - component: {fileID: 7812517796420824312}
   m_Layer: 0
   m_Name: PressButton
   m_TagString: Untagged
@@ -97,23 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onComplete: 1
-  _puzzleComponent: {fileID: 0}
-  _onTriggerEnter: 1
-  _onTriggerExit: 1
---- !u!114 &7812517796420824312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273582270056763288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40b14382563b974993dac1ca524425f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onComplete: 1
-  _puzzleComponent: {fileID: 0}
+  _puzzleComponents: []
   _onTriggerEnter: 1
   _onTriggerExit: 1
 --- !u!1 &3258992576229667414
