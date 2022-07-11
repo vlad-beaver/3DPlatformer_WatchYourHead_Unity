@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6090386420642119474}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071079}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -8.063286, y: 0.4039383, z: -86.955574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377149143837673221, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
       propertyPath: _onComplete
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8377149143837673221, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
       propertyPath: _onTriggerExit
@@ -271,7 +271,20 @@ PrefabInstance:
       propertyPath: _puzzleComponent
       value: 
       objectReference: {fileID: 4039327864384982806}
-    m_RemovedComponents: []
+    - target: {fileID: 8377149143837673221, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
+      propertyPath: _puzzleComponents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377149143837673221, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
+      propertyPath: _puzzleComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 4039327864384982806}
+    - target: {fileID: 8377149143837673221, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
+      propertyPath: _puzzleComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 6667316632939923378}
+    m_RemovedComponents:
+    - {fileID: 7812517796420824312, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb6132d87cc3fee4d9d44e05b476dca0, type: 3}
 --- !u!114 &2361288001493028114 stripped
 MonoBehaviour:

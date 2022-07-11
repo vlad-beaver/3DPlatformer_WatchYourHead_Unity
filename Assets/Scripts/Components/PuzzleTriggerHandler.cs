@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Infrastructure.Abstractables;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Infrastructure.Abstractables;
 using UnityEngine;
 
 namespace Assets.Scripts.Components
@@ -6,7 +7,7 @@ namespace Assets.Scripts.Components
     public class PuzzleTriggerHandler : PuzzleComponent
     {
         [SerializeField]
-        private PuzzleComponent _puzzleComponent = null;
+        private List<PuzzleComponent> _puzzleComponents = null;
 
         [SerializeField]
         private bool _onTriggerEnter;
@@ -42,7 +43,7 @@ namespace Assets.Scripts.Components
             }
 
             base.Activate();
-            _puzzleComponent?.Activate();
+            _puzzleComponents.ForEach(_ => _.Activate());
             PuzzleSystem?.Notify(
                 this,
                 new PuzzleEventArgs<bool>()
@@ -59,7 +60,7 @@ namespace Assets.Scripts.Components
             }
 
             base.Deactivate();
-            _puzzleComponent?.Deactivate();
+            _puzzleComponents.ForEach(_ => _.Deactivate());
             PuzzleSystem?.Notify(
                 this,
                 new PuzzleEventArgs<bool>()

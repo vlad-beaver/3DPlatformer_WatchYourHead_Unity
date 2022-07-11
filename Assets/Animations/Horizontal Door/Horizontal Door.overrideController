@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: Horizontal Door
   m_Controller: {fileID: 9100000, guid: 6f7b59e461e252448ae91ba1b2203d05, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: aa52c393462d4714c894e0f99cb1bd56, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6524a1ddfdf2ec44aaaa9f0724de8534, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: f44f61cddb9b98e4a9fdbe5fde52ed93, type: 2}
