@@ -281,8 +281,8 @@ public class AnimationAndMovementController : PuzzlePlayer
             {
                 if (_currentObjectRigidbody)
                 {
-                    _currentObjectRigidbody.isKinematic = false;
-                    _currentObjectCollider.enabled = true;
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
                     _currentObjectRigidbody = hitInfo.rigidbody;
                     _currentObjectCollider = hitInfo.collider;
                     // Disable physics for picked head
