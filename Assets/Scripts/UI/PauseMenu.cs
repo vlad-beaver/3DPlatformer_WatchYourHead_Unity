@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
-    public GameObject inGameUI;
-    // Update is called once per frame
+    private static bool GameIsPaused = false;
+    [SerializeField]
+    private GameObject pauseMenuUI;
+    [SerializeField]
+    private GameObject inGameUI;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,6 +26,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+    }
+
     public void Resume()
     {
         inGameUI.SetActive(true);
@@ -32,8 +40,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        GameObject myEventSystem = GameObject.Find("EventSystem");
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
     void Pause()
     {
@@ -47,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("StartMenu");
     }
 
 

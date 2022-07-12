@@ -5,20 +5,22 @@ using UnityEngine;
 
 public class EndScript : MonoBehaviour
 {
-    public GameObject endGameMenu;
-    public GameObject inGameUI;
+    [SerializeField]
+    private GameObject endGameMenu;
+    [SerializeField]
+    private GameObject inGameUI;
     void OnTriggerEnter(Collider other)
     {
-        //PuzzlePlayer.Instance.Kill();
-        endGameMenu.SetActive(true);
-        inGameUI.SetActive(false);
-        Time.timeScale = 0f;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+
     }
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("Object is within trigger");
+        //PuzzlePlayer.Instance.Kill();
+        Time.timeScale = 0f;
+        endGameMenu.SetActive(true);
+        inGameUI.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     void OnTriggerExit(Collider other)
     {
