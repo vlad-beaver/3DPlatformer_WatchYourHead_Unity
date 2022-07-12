@@ -71,7 +71,6 @@ public class AnimationAndMovementController : PuzzlePlayer
     private int _isTakingHeadHash;
     private int _isDropDownHeadHash;
     private int _isHavingHeadHash;
-    private bool _isTakingHeadAnimating = false;
 
 
     // Awake is called earlier than Start in Unity's event life cycle
@@ -190,15 +189,14 @@ public class AnimationAndMovementController : PuzzlePlayer
             _animator.SetBool(_isRunningHash, false);
         }
         // Start taking head after robot takes head and only if he doesn't have head
-        else if ((_isPickUpPressed && !isTakingHead) && !_isTakingHeadAnimating && !_currentObjectRigidbody)
+        else if ((_isPickUpPressed && !isTakingHead) && !_currentObjectRigidbody)
         {
             _animator.SetBool(_isTakingHeadHash, true);
         }
         // Stop taking head if robot doesn't take head
-        else if ((!_isPickUpPressed && isTakingHead) && _isTakingHeadAnimating)
+        else if (!_isPickUpPressed && isTakingHead)
         {
             _animator.SetBool(_isTakingHeadHash, false);
-            _isTakingHeadAnimating = false;
         }
         // Start drop down head if _isDropDownPressed and he has head
         else if (_isDropDownPressed && !isDropDownHead && _currentObjectRigidbody)
@@ -271,37 +269,9 @@ public class AnimationAndMovementController : PuzzlePlayer
         }
     }
 
-    private void HandlePickUp()
+    // Placing the head in front of robot
+    private void HandleDropDown()
     {
-        if (_isPickUpPressed/*Input.GetKeyDown(KeyCode.E)*/)
-        {
-            var pickupRay = new Ray(_pickupTarget.transform.position, _pickupTarget.transform.forward);
-
-            if (Physics.Raycast(pickupRay, out RaycastHit hitInfo, _pickupRange, _pickupLayer))
-            {
-                if (_currentObjectRigidbody)
-                {
-                    _currentObjectRigidbody.isKinematic = true;
-                    _currentObjectCollider.enabled = false;
-                    _currentObjectRigidbody = hitInfo.rigidbody;
-                    _currentObjectCollider = hitInfo.collider;
-                    // Disable physics for picked head
-                    _currentObjectRigidbody.isKinematic = true;
-                    _currentObjectCollider.enabled = false;
-                }
-                else
-                {
-                    _currentObjectRigidbody = hitInfo.rigidbody;
-                    _currentObjectCollider = hitInfo.collider;
-                    // Disable physics for picked head
-                    _currentObjectRigidbody.isKinematic = true;
-                    _currentObjectCollider.enabled = false;
-                }
-                return;
-            }
-            _isTakingHeadAnimating = true;
-        }
-        // Placing the head in front of robot
         if (_isDropDownPressed)
         {
             if (_currentObjectRigidbody)
@@ -319,6 +289,36 @@ public class AnimationAndMovementController : PuzzlePlayer
         {
             _currentObjectRigidbody.position = _robotHead.position;
             _currentObjectRigidbody.rotation = _robotHead.rotation;
+        }
+    }
+
+    // Robot takes the head using trigger
+    private void OnTriggerStay(Collider other)
+    {
+        if (_isPickUpPressed)
+        {
+            if (other.GetComponent<BoxCollider>())
+            {
+                if (_currentObjectRigidbody)
+                {
+                    _currentObjectRigidbody = other.GetComponent<Rigidbody>();
+                    _currentObjectCollider = other.GetComponent<BoxCollider>();
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
+                    // Disable physics for picked head
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
+                }
+                else
+                {
+                    _currentObjectRigidbody = other.GetComponent<Rigidbody>();
+                    _currentObjectCollider = other.GetComponent<BoxCollider>();
+                    // Disable physics for picked head
+                    _currentObjectRigidbody.isKinematic = true;
+                    _currentObjectCollider.enabled = false;
+                }
+                return;
+            }
         }
     }
 
@@ -342,7 +342,7 @@ public class AnimationAndMovementController : PuzzlePlayer
 
         HandleGravity();
         HandleJump();
-        HandlePickUp();
+        HandleDropDown();
     }
 
     private void OnEnable()
