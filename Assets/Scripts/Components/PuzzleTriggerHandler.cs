@@ -9,15 +9,19 @@ namespace Assets.Scripts.Components
         [SerializeField]
         private List<PuzzleComponent> _puzzleComponents = null;
 
+        private bool OnTriggerEnterEnabled => _onTriggerEnter && IsEnable;
+
         [SerializeField]
         private bool _onTriggerEnter;
+
+        private bool OnTriggerExitEnabled => _onTriggerExit && IsEnable;
 
         [SerializeField]
         private bool _onTriggerExit;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.CompareTag("Player") || !_onTriggerEnter)
+            if (!other.CompareTag("Player") || !OnTriggerEnterEnabled)
             {
                 return;
             }
@@ -27,7 +31,7 @@ namespace Assets.Scripts.Components
 
         private void OnTriggerExit(Collider other)
         {
-            if (!other.CompareTag("Player") || !_onTriggerExit)
+            if (!other.CompareTag("Player") || !OnTriggerExitEnabled)
             {
                 return;
             }
