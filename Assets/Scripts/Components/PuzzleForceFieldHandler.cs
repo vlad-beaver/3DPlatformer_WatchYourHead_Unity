@@ -4,9 +4,13 @@ using UnityEngine;
 public class PuzzleForceFieldHandler : PuzzleComponent
 {
     [SerializeField]
-    private CharacterController _character;
-    [SerializeField]
     private Animator _characterAnimator;
+    [SerializeField]
+    private Transform _checkpointRobot;
+    [SerializeField]
+    private Rigidbody _head;
+    [SerializeField]
+    private Transform _checkpointHead;
     private int _isHavingHeadHash;
 
     private void Awake()
@@ -25,7 +29,9 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         }
         else
         {
-            PuzzlePlayer.Instance.Kill();
+            //PuzzlePlayer.Instance.Kill();
+            PuzzlePlayer.Instance.transform.position = _checkpointRobot.position;
+            _head.transform.position = _checkpointHead.position;
             Debug.Log("!!!Access denied!!!\nRobot is not having head or body");
         }
 
