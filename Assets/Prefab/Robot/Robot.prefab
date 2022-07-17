@@ -338,7 +338,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.8
   m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -359,8 +359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onComplete: 0
   _cameraTransform: {fileID: 0}
-  _velocity: 3
-  _runMultiplayer: 2
+  _velocity: 3.5
+  _runMultiplayer: 1.4
   _gravity: -11
   _maxJumpHeight: 2
   _pickupLayer:
