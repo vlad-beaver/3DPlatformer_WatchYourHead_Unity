@@ -653,7 +653,7 @@ Transform:
   - {fileID: 5709308468994217627}
   m_Father: {fileID: 5709308468633505234}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.001, y: 0, z: 0}
 --- !u!33 &5709308468792062180
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1073,7 +1073,7 @@ Transform:
   - {fileID: 5709308469283204685}
   m_Father: {fileID: 5709308468633505234}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.001, y: 0, z: 0}
 --- !u!33 &5709308469288651646
 MeshFilter:
   m_ObjectHideFlags: 0
