@@ -360,7 +360,7 @@ MonoBehaviour:
   _onComplete: 0
   _cameraTransform: {fileID: 0}
   _velocity: 3.5
-  _runMultiplayer: 1.6
+  _runMultiplayer: 2.6
   _gravity: -11
   _maxJumpHeight: 2
   _pickupLayer:
