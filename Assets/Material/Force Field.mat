@@ -15,7 +15,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses: []
@@ -40,12 +40,12 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
-    - _Collision_Offset: 0.3
+    - _Collision_Offset: 10
     - _Fresnel_Power: 10
     m_Colors:
-    - _Emission: {r: 0, g: 10.541177, b: 11.984314, a: 0}
+    - _Emission: {r: 0, g: 21.082354, b: 23.968628, a: 0}
     - _Speed: {r: 0, g: 0.1, b: 0, a: 0}
-    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Tiling: {r: 0.8, g: 0.8, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6675130081366437433
 MonoBehaviour:
