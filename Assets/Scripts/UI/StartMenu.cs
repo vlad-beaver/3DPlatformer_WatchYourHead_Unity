@@ -8,34 +8,41 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject mainMenu;
+    [SerializeField]
+    private GameObject nextButton;
     private Image comics;
 
     private int keyPressCounter=0;
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && mainMenu.activeSelf)
         {
-            if (keyPressCounter == 0)
-            {
-                mainMenu.SetActive(false);
-            }
-            if (keyPressCounter >= 4)
-            {
-                PlayGame();
-                return;
-            }
-            if (comics != null)
-            {
-                comics.enabled = false;
-            }  
             comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+            mainMenu.SetActive(false);
             comics.enabled = true;
-
+            StartCoroutine(ShowNextButton());
         }
+    }
+    public void NextComics()
+    {
+        nextButton.SetActive(false);
+        comics.enabled = false;
+        if (keyPressCounter >= 4)
+        {
+            PlayGame();
+            return;
+        }
+        comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+        comics.enabled = true;
+        StartCoroutine(ShowNextButton());
     }
     public void PlayGame()
     {
         SceneManager.LoadScene("MainLevel");
     }
-
+    IEnumerator ShowNextButton()
+    {
+        yield return new WaitForSeconds(3);
+        nextButton.SetActive(true);
+    }
 }

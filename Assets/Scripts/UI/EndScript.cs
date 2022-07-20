@@ -10,46 +10,50 @@ public class EndScript : MonoBehaviour
     private GameObject endGameMenu;
     [SerializeField]
     private GameObject inGameUI;
-    private bool gameEnd = false;
+    [SerializeField]
+    private GameObject nextButton;
 
     private Image comics;
 
     private int keyPressCounter = 0;
-    void Update()
+
+    public void NextComics()
     {
-        if (Input.anyKeyDown && gameEnd)
+        nextButton.SetActive(false);
+        comics.enabled = false;
+        if (keyPressCounter >= 3)
         {
-            if (keyPressCounter >= 3)
-            {
-                comics.enabled = false;
-                endGameMenu.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                comics.enabled = false;
-                comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
-                comics.enabled = true;
-            }
-            
+            Time.timeScale = 0f;
+            endGameMenu.SetActive(true);
+        }
+        else
+        {
+            comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+            comics.enabled = true;
+            StartCoroutine(ShowNextButton());
         }
     }
     void OnTriggerEnter(Collider other)
     {
-        gameEnd = true;
+        inGameUI.SetActive(false);
         comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
         comics.enabled = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        StartCoroutine(ShowNextButton());
     }
     void OnTriggerStay(Collider other)
     {
-        Time.timeScale = 0f;
-        inGameUI.SetActive(false);
+        
     }
     void OnTriggerExit(Collider other)
     {
         Debug.Log("Object Exited the trigger");
     }
-    
+    IEnumerator ShowNextButton()
+    {
+        yield return new WaitForSeconds(3);
+        nextButton.SetActive(true);
+    }
 
 }
