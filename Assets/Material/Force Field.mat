@@ -40,10 +40,10 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
-    - _Collision_Offset: 0.3
     - _Fresnel_Power: 10
+    - _Intersect_Offset: 0.3
     m_Colors:
-    - _Emission: {r: 0, g: 10.541177, b: 11.984314, a: 0}
+    - _Emission: {r: 0, g: 10.54118, b: 11.98431, a: 0}
     - _Speed: {r: 0, g: 0.1, b: 0, a: 0}
     - _Tiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
