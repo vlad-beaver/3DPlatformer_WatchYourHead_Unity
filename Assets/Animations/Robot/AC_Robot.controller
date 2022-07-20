@@ -1033,7 +1033,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.1
   m_TransitionOffset: 0
-  m_ExitTime: 0.85
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1331,9 +1331,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: isTakingHead
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isHavingHead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1775023369963566117}
@@ -1807,16 +1804,13 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isHavingHead
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isDropDownHead
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1103828737520396319}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.9000003
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
