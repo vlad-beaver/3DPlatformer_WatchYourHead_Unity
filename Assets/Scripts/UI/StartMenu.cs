@@ -6,29 +6,36 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    //[SerializeField]
-    //private GameObject mainMenu;
-    //[SerializeField]
-    //private GameObject comics;
-    //[SerializeField]
-    //private Image comicsImage;
+    [SerializeField]
+    private GameObject mainMenu;
+    private Image comics;
 
-    //private int keyPressCounter=0;
+    private int keyPressCounter=0;
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKeyDown)
         {
-            PlayGame();
+            if (keyPressCounter == 0)
+            {
+                mainMenu.SetActive(false);
+            }
+            if (keyPressCounter >= 4)
+            {
+                PlayGame();
+                return;
+            }
+            if (comics != null)
+            {
+                comics.enabled = false;
+            }  
+            comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+            comics.enabled = true;
+
         }
     }
     public void PlayGame()
     {
         SceneManager.LoadScene("MainLevel");
     }
-    //public void WatchComics()
-    //{
-    //    mainMenu.SetActive(false);
-    //    comics.SetActive(true);
-    //    comicsImage.sprite=
-    //}
+
 }
