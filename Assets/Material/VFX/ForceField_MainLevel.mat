@@ -41,7 +41,7 @@ Material:
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
     - _Fresnel_Power: 10
-    - _Intersect_Offset: 50
+    - _Intersect_Offset: 100
     m_Colors:
     - _Emission: {r: 0, g: 10.54118, b: 11.98431, a: 0}
     - _Speed: {r: 0, g: 0.1, b: 0, a: 0}

@@ -6,6 +6,8 @@ public class PuzzleForceFieldHandler : PuzzleComponent
     [SerializeField]
     private Animator _characterAnimator;
     [SerializeField]
+    private Animator _displayAnimator;
+    [SerializeField]
     private Transform _checkpointRobot;
     [SerializeField]
     private Rigidbody _head;
@@ -29,7 +31,9 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         }
         else
         {
-            //PuzzlePlayer.Instance.Kill();
+            // Turn on display animation
+            _displayAnimator.Play("OnComplete");
+            // Spawn player and head
             PuzzlePlayer.Instance.transform.position = _checkpointRobot.position;
             _head.transform.position = _checkpointHead.position;
             Debug.Log("!!!Access denied!!!\nRobot is not having head or body");
