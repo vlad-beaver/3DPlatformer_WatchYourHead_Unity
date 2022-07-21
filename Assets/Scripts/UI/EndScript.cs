@@ -9,8 +9,6 @@ public class EndScript : MonoBehaviour
     [SerializeField]
     private GameObject endGameMenu;
     [SerializeField]
-    private GameObject inGameUI;
-    [SerializeField]
     private GameObject nextButton;
 
     private Image comics;
@@ -33,23 +31,16 @@ public class EndScript : MonoBehaviour
             StartCoroutine(ShowNextButton());
         }
     }
-    void OnTriggerEnter(Collider other)
+
+    private void Start()
     {
-        inGameUI.SetActive(false);
         comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
         comics.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         StartCoroutine(ShowNextButton());
     }
-    void OnTriggerStay(Collider other)
-    {
-        
-    }
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Object Exited the trigger");
-    }
+
     IEnumerator ShowNextButton()
     {
         yield return new WaitForSeconds(3);
