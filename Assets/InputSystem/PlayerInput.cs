@@ -182,6 +182,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ded8ca0b-92a4-4a1c-89b7-7a61f38b8025"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7ff3bc65-9c92-49e0-b2e2-230d056005c6"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
