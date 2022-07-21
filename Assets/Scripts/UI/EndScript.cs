@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Infrastructure.Abstractables;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndScript : MonoBehaviour
@@ -19,9 +20,8 @@ public class EndScript : MonoBehaviour
     {
         nextButton.SetActive(false);
         comics.enabled = false;
-        if (keyPressCounter >= 3)
+        if (keyPressCounter >= 2)
         {
-            Time.timeScale = 0f;
             endGameMenu.SetActive(true);
         }
         else
@@ -39,6 +39,15 @@ public class EndScript : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         StartCoroutine(ShowNextButton());
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+    public void QuitGame()
+    {
+        Debug.Log("QUIT");
+        Application.Quit();
     }
 
     IEnumerator ShowNextButton()
