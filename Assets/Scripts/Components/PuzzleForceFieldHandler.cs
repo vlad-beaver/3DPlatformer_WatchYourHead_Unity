@@ -1,48 +1,56 @@
+using System.Runtime.CompilerServices;
 using Assets.Scripts.Infrastructure.Abstractables;
+using DG.Tweening;
 using UnityEngine;
 
 public class PuzzleForceFieldHandler : PuzzleComponent
 {
     [SerializeField]
-    private Animator _characterAnimator;
-    [SerializeField]
     private Animator _displayAnimator;
     [SerializeField]
-    private Transform _checkpointRobot;
+    private Transform _checkpointPlayer;
     [SerializeField]
     private Rigidbody _head;
     [SerializeField]
     private Transform _checkpointHead;
-    private int _isHavingHeadHash;
+
+    [SerializeField]
+    [ColorUsage(true, true)]
+    private Color _dangerColor;
+    [SerializeField]
+    [ColorUsage(true, true)]
+    private Color _safeColor;
+
+    private Renderer _renderer;
+    private Collider _collider;
 
     private void Awake()
     {
+        _renderer = GetComponent<Renderer>();
+        _collider = GetComponent<Collider>();
+    }
 
+    private void Update()
+    {
+        _collider.enabled = !PuzzlePlayer.Instance.HasHead;
+        _renderer.material.DOColor(PuzzlePlayer.Instance.HasHead ? _safeColor : _dangerColor, "_Emission", 1f);
     }
 
     public override void Activate()
     {
         base.Activate();
-        _isHavingHeadHash = Animator.StringToHash("isHavingHead");
-        bool _isHavingHead = _characterAnimator.GetBool(_isHavingHeadHash);
-        if (_isHavingHead)
+
+
+        if (PuzzlePlayer.Instance.HasHead)
         {
-            Debug.Log("!!!Access approved!!!\nRobot is having head");
-        }
-        else
-        {
-            // Turn on display animation
-            _displayAnimator.Play("OnComplete");
-            // Spawn player and head
-            PuzzlePlayer.Instance.transform.position = _checkpointRobot.position;
-            _head.transform.position = _checkpointHead.position;
-            Debug.Log("!!!Access denied!!!\nRobot is not having head or body");
+            return;
         }
 
-    }
+        _displayAnimator.Play("OnComplete");
 
-    public override void Deactivate()
-    {
-        base.Deactivate();
+        var cached = _checkpointPlayer.position;
+        cached.y = PuzzlePlayer.Instance.transform.position.y;
+        PuzzlePlayer.Instance.transform.DOMove(cached, 1f);
+        _head.DOMove(_checkpointHead.position, 1f);
     }
 }

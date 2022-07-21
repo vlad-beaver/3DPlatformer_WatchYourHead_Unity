@@ -4,6 +4,8 @@
     {
         public static PuzzlePlayer Instance { get; protected set; }
 
+        public bool HasHead { get; set; }
+
         protected PuzzlePlayer()
         {
             Instance = this;
