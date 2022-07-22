@@ -53,6 +53,8 @@ public class EndScript : MonoBehaviour
     IEnumerator ShowNextButton()
     {
         yield return new WaitForSeconds(3);
+        var myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         nextButton.SetActive(true);
     }
 
