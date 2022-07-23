@@ -13,6 +13,7 @@ public class StartMenu : MonoBehaviour
     private Image comics;
 
     private int keyPressCounter=0;
+
     void Update()
     {
         if (Input.anyKeyDown && mainMenu.activeSelf)
@@ -43,6 +44,8 @@ public class StartMenu : MonoBehaviour
     IEnumerator ShowNextButton()
     {
         yield return new WaitForSeconds(3);
+        var myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         nextButton.SetActive(true);
     }
 }
