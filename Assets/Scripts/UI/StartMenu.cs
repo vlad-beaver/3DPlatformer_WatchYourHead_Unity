@@ -12,7 +12,11 @@ public class StartMenu : MonoBehaviour
     private GameObject nextButton;
     private Image comics;
 
+    [SerializeField]
+    private AudioSource _slideSound;
+
     private int keyPressCounter=0;
+    private int slidePressCounter = 1;
 
     void Update()
     {
@@ -33,6 +37,7 @@ public class StartMenu : MonoBehaviour
             PlayGame();
             return;
         }
+        _slideSound = GameObject.Find("SlideMusic" + (++slidePressCounter)).GetComponent<AudioSource>();
         comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
         comics.enabled = true;
         StartCoroutine(ShowNextButton());
@@ -43,6 +48,7 @@ public class StartMenu : MonoBehaviour
     }
     IEnumerator ShowNextButton()
     {
+        _slideSound.Play();
         yield return new WaitForSeconds(3);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);

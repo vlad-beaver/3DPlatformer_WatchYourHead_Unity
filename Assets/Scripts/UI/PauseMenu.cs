@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     private GameObject pauseMenuUI;
     [SerializeField]
     private GameObject inGameUI;
+
+    public AudioMixerGroup mixer;
 
     void Update()
     {
@@ -65,4 +68,18 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // For setting screen in UI
+
+    //private void ToggleMusic()
+    //{
+    //    if (GameIsPaused)
+    //        mixer.audioMixer.SetFloat("MasterVolume", 0);
+    //    else
+    //        mixer.audioMixer.SetFloat("MasterVolume", -80);
+    //}
+
+    //private void ChangeVolume(float volume)
+    //{
+    //    mixer.audioMixer.GetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
+    //}
 }
