@@ -22,10 +22,16 @@ public class StartMenu : MonoBehaviour
     {
         if (Input.anyKeyDown && mainMenu.activeSelf)
         {
-            comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
-            mainMenu.SetActive(false);
-            comics.enabled = true;
-            StartCoroutine(ShowNextButton());
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                Debug.Log("QUIT");
+                Application.Quit();
+            }
+            else {
+                comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+                mainMenu.SetActive(false);
+                comics.enabled = true;
+                StartCoroutine(ShowNextButton());
+            }
         }
     }
     public void NextComics()
