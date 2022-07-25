@@ -14,6 +14,10 @@ public class AnimationAndMovementController : PuzzlePlayer
     private CharacterController _characterController;
     private Animator _animator;
     [SerializeField]
+    private Animator _headAnimator;
+    private int _isAngryHash;
+    private int _isJoyHash;
+    [SerializeField]
     private Transform _cameraTransform;
 
     // Variables to store optimized setter/getter parameter IDs
@@ -91,6 +95,8 @@ public class AnimationAndMovementController : PuzzlePlayer
         _isTakingHeadHash = Animator.StringToHash("isTakingHead");
         _isDropDownHeadHash = Animator.StringToHash("isDropDownHead");
         _isHavingHeadHash = Animator.StringToHash("isHavingHead");
+        _isAngryHash = Animator.StringToHash("isAngry");
+        _isJoyHash = Animator.StringToHash("isJoy");
 
         // Set the player input callbacks
         _playerInput.CharacterControls.Move.started += OnMovementInput;
@@ -222,7 +228,24 @@ public class AnimationAndMovementController : PuzzlePlayer
         {
             _animator.SetBool(_isHavingHeadHash, false);
         }
-
+        // Enable head angry animation when robot doesn't have head
+        else if (!isHavingHead)
+        {
+            _headAnimator.SetBool(_isJoyHash, false);
+            _headAnimator.SetBool(_isAngryHash, true);
+        }
+        // Enable head joy animation when robot walking with head
+        else if (_isMovementPressed && isWalking)
+        {
+            _headAnimator.SetBool(_isAngryHash, false);
+            _headAnimator.SetBool(_isJoyHash, true);
+        }
+        // Enable head idle animation when robot having head
+        else if (isHavingHead)
+        {
+            _headAnimator.SetBool(_isAngryHash, false);
+            _headAnimator.SetBool(_isJoyHash, false);
+        }
     }
 
     private void HandleGravity()
