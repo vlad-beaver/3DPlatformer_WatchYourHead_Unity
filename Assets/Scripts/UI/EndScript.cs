@@ -42,7 +42,7 @@ public class EndScript : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("StartMenuWithExit");
     }
     public void QuitGame()
     {
