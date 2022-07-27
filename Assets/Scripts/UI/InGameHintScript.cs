@@ -21,7 +21,7 @@ public class InGameHintScript : MonoBehaviour
     {
         Debug.Log(_counterOfTries);
         _counterOfTries += 1;
-        if(_counterOfTries==3)
+        if(_counterOfTries==5)
         {
             _counterOfTries = 0;
             StartCoroutine(Text());

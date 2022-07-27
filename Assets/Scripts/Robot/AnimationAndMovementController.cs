@@ -81,6 +81,13 @@ public class AnimationAndMovementController : PuzzlePlayer
     private int _isHavingHeadHash;
     private bool _isLockDropDown;
 
+    // For taking head before starting game
+    private void Start()
+    {
+        _isPickUpPressed = true;
+        OnTriggerStay(_headAnimator.GetComponent<Collider>());
+        _isPickUpPressed = false;
+    }
 
     // Awake is called earlier than Start in Unity's event life cycle
     private void Awake()
