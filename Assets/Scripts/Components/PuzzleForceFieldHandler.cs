@@ -29,8 +29,8 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         _renderer = GetComponent<Renderer>();
         _collider = GetComponent<Collider>();
 
-        PuzzlePlayer.Instance.HasHead.OnValueChanged += (oldValue, newValue) =>
-            _renderer.material.DOColor(PuzzlePlayer.Instance.HasHead ? _dangerColor : _safeColor, "_Emission", 1f);
+        PuzzlePlayer.Instance.HasHead.OnValueChanged += (_, newValue) =>
+            _renderer.material.DOColor(newValue ? _safeColor : _dangerColor, "_Emission", 1f);
     }
 
     private void Update()
