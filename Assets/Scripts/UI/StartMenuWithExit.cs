@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class StartMenuWithExit : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenu;
+    private GameObject _mainMenu;
     [SerializeField]
-    private GameObject nextButton;
+    private GameObject _nextButton;
 
     [SerializeField]
     private AudioSource _slideSound;

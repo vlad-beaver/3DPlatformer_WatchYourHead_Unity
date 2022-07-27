@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UITest.unity
     guid: f7e11b83ea1614d4b8401acbd7f85c62
+  - enabled: 1
+    path: Assets/Scenes/StartMenuWithExit.unity
+    guid: 89b09aaebdedadc4f9346774e7e0bd41
+  - enabled: 1
+    path: Assets/Scenes/PlayerDie.unity
+    guid: 65c57f9cd3b100e49beab1e09990bb54
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5b2d59ee40f6614438828480793526a3, type: 2}
