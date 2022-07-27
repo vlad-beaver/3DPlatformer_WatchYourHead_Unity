@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AnimationAndMovementController : PuzzlePlayer
 {
@@ -303,12 +304,7 @@ public class AnimationAndMovementController : PuzzlePlayer
         {
             _isLockDropDown = false;
 
-#if UNITY_EDITOR
-            Debug.DrawRay(transform.position, transform.right * 2f, Color.red);
-            Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
-            Debug.DrawRay(transform.position, -transform.right * 2f, Color.red);
-#endif
-            if (Physics.SphereCast(transform.position, 2f, transform.forward, out var hit, 2f)
+            if (Physics.SphereCast(transform.position, 1f, transform.forward, out var hit, 2f)
                 && hit.transform.CompareTag("Wall"))
             {
                 _isLockDropDown = true;
