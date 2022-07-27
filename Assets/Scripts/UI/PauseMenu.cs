@@ -6,11 +6,13 @@ using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
-    private static bool GameIsPaused = false;
+    private static bool _gameIsPaused = false;
     [SerializeField]
-    private GameObject pauseMenuUI;
+    private GameObject _pauseMenuUI;
     [SerializeField]
-    private GameObject inGameUI;
+    private GameObject _authorsMenuUI;
+    [SerializeField]
+    private GameObject _inGameUI;
 
     public AudioMixerGroup mixer;
 
@@ -18,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (_gameIsPaused)
             {
                 Resume();
             }
@@ -37,10 +39,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        inGameUI.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        _inGameUI.SetActive(true);
+        _pauseMenuUI.SetActive(false);
+        _authorsMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        _gameIsPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         var myEventSystem = GameObject.Find("EventSystem");
@@ -48,17 +51,16 @@ public class PauseMenu : MonoBehaviour
     }
     void Pause()
     {
-        inGameUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        _inGameUI.SetActive(false);
+        _pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        _gameIsPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-
     public void BackToMainMenu()
     {
-        GameIsPaused = false;
+        _gameIsPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartMenu");
     }

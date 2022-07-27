@@ -7,13 +7,13 @@ using UnityEngine;
 public class InGameHintScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject popUpPhrase;
+    private GameObject _popUpPhrase;
     [SerializeField]
-    private string hintText;
+    private string _hintText;
     [SerializeField]
-    private TextMeshProUGUI popUpText;
+    private TextMeshProUGUI _popUpText;
     [SerializeField]
-    private BoxCollider boxTrigger;
+    private BoxCollider _boxTrigger;
 
     private int _counterOfTries=0;
 
@@ -23,6 +23,7 @@ public class InGameHintScript : MonoBehaviour
         _counterOfTries += 1;
         if(_counterOfTries==3)
         {
+            _counterOfTries = 0;
             StartCoroutine(Text());
         }
         
@@ -33,17 +34,17 @@ public class InGameHintScript : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        boxTrigger.enabled = true;
+        _boxTrigger.enabled = true;
     }
     void HidePopUp()
     {
-        popUpPhrase.SetActive(false);
-        popUpText.text = "";
+        _popUpPhrase.SetActive(false);
+        _popUpText.text = "";
     }
     void ShowPopUp()
     {
-        popUpPhrase.SetActive(true);
-        popUpText.text = hintText;
+        _popUpPhrase.SetActive(true);
+        _popUpText.text = _hintText;
        
     }
 

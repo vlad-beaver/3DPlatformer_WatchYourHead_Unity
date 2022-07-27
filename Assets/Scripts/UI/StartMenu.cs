@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenu;
+    private GameObject _mainMenu;
     [SerializeField]
-    private GameObject nextButton;
-    private Image comics;
+    private GameObject _nextButton;
+    private Image _comics;
 
     [SerializeField]
     private AudioSource _slideSound;
@@ -20,44 +20,45 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown && mainMenu.activeSelf)
+        if (Input.anyKeyDown && _mainMenu.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 Debug.Log("QUIT");
                 Application.Quit();
             }
             else {
-                comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
-                mainMenu.SetActive(false);
-                comics.enabled = true;
+                _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+                _mainMenu.SetActive(false);
+                _comics.enabled = true;
                 StartCoroutine(ShowNextButton());
             }
         }
     }
     public void NextComics()
     {
-        nextButton.SetActive(false);
-        comics.enabled = false;
+        _nextButton.SetActive(false);
+        _comics.enabled = false;
         if (keyPressCounter >= 4)
         {
             PlayGame();
             return;
         }
         _slideSound = GameObject.Find("SlideMusic" + (++slidePressCounter)).GetComponent<AudioSource>();
-        comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
-        comics.enabled = true;
+        _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+        _comics.enabled = true;
         StartCoroutine(ShowNextButton());
     }
     public void PlayGame()
     {
         SceneManager.LoadScene("MainLevel");
     }
+
     IEnumerator ShowNextButton()
     {
         _slideSound.Play();
         yield return new WaitForSeconds(3);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-        nextButton.SetActive(true);
+        _nextButton.SetActive(true);
     }
 }
