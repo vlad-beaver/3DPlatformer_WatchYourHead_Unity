@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Infrastructure.Abstractables;
 using UnityEngine;
 
@@ -19,9 +20,16 @@ namespace Assets.Scripts.Components
         [SerializeField]
         private bool _onTriggerExit;
 
+        private Collider _collider;
+
+        private void Awake()
+        {
+            _collider = GetComponent<Collider>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.CompareTag("Player") || !OnTriggerEnterEnabled)
+            if (other.GetComponent<PuzzleEntity>() ==  null || !OnTriggerEnterEnabled)
             {
                 return;
             }
@@ -31,12 +39,27 @@ namespace Assets.Scripts.Components
 
         private void OnTriggerExit(Collider other)
         {
-            if (!other.CompareTag("Player") || !OnTriggerExitEnabled)
+            if (other.GetComponent<PuzzleEntity>() ==  null || !OnTriggerExitEnabled)
+            {
+                return;
+            }
+
+            int colliders = Physics
+                .OverlapBox(_collider.transform.position + _collider.bounds.center, _collider.bounds.extents, Quaternion.identity)
+                .Select(_ => _.GetComponent<PuzzleEntity>())
+                .Count(_ => _ != null);
+            if (colliders != 0)
             {
                 return;
             }
 
             Deactivate();
+        }
+
+        void OnDrawGizmos()
+        {
+            if (!Application.isPlaying) return;
+            Gizmos.DrawCube(_collider.transform.position + _collider.bounds.center, _collider.bounds.size);
         }
 
         public override void Activate()

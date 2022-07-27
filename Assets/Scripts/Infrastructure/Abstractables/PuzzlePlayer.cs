@@ -4,11 +4,12 @@
     {
         public static PuzzlePlayer Instance { get; protected set; }
 
-        public bool HasHead { get; set; }
+        public ObservableValue<bool> HasHead;
 
         protected PuzzlePlayer()
         {
             Instance = this;
+            HasHead = new ObservableValue<bool>(false);
         }
 
         public abstract void Kill();

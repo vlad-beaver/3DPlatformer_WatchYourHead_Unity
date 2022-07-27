@@ -21,6 +21,8 @@ namespace Assets.Scripts.Components
         public override void Activate()
         {
             base.Activate();
+
+            transform.DOKill(true);
             transform
                 .DOMove(_moveTo.position, _duration)
                 .SetEase(Ease.Linear)
@@ -30,7 +32,7 @@ namespace Assets.Scripts.Components
         public override void Deactivate()
         {
             base.Deactivate();
-            transform.DOKill();
+            transform.DOKill(true);
             transform.DOMove(_initialPosition, _duration);
         }
     }

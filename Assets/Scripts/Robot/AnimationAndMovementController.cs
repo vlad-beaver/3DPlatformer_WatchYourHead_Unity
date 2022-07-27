@@ -160,7 +160,7 @@ public class AnimationAndMovementController : PuzzlePlayer
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * new Vector3(0f, _currentMovement.y, _velocity);
-            _moveDirRun = Quaternion.Euler(0f, targetAngle, 0f) * new Vector3(0f, _currentRunMovement.y, (_velocity * _runMultiplayer) );
+            _moveDirRun = Quaternion.Euler(0f, targetAngle, 0f) * new Vector3(0f, _currentRunMovement.y, (_velocity * _runMultiplayer));
         }
     }
 
@@ -279,15 +279,20 @@ public class AnimationAndMovementController : PuzzlePlayer
         if (_isDropDownPressed)
         {
             _isLockDropDown = false;
+
+#if UNITY_EDITOR
+            Debug.DrawRay(transform.position, transform.right * 2f, Color.red);
             Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
-            if (Physics.Raycast(transform.position, transform.forward, out var hit, 2f)
+            Debug.DrawRay(transform.position, -transform.right * 2f, Color.red);
+#endif
+            if (Physics.SphereCast(transform.position, 2f, transform.forward, out var hit, 2f)
                 && hit.transform.CompareTag("Wall"))
             {
                 _isLockDropDown = true;
                 return;
             }
 
-            HasHead = false;
+            HasHead.Value = false;
             if (_currentObjectRigidbody)
             {
                 _currentObjectRigidbody.isKinematic = false;
@@ -310,7 +315,7 @@ public class AnimationAndMovementController : PuzzlePlayer
 
         if (other.gameObject.CompareTag("Player"))
         {
-            HasHead = true;
+            HasHead.Value = true;
             if (_currentObjectRigidbody)
             {
                 _currentObjectRigidbody = other.GetComponent<Rigidbody>();
