@@ -15,9 +15,17 @@ public class InGameHintScript : MonoBehaviour
     [SerializeField]
     private BoxCollider boxTrigger;
 
+    private int _counterOfTries=0;
+
     void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(Text());
+        Debug.Log(_counterOfTries);
+        _counterOfTries += 1;
+        if(_counterOfTries==3)
+        {
+            StartCoroutine(Text());
+        }
+        
     }
     void OnTriggerStay(Collider other)
     {
@@ -25,7 +33,7 @@ public class InGameHintScript : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        boxTrigger.enabled = false;
+        boxTrigger.enabled = true;
     }
     void HidePopUp()
     {
