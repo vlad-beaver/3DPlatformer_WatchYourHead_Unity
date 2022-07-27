@@ -45,7 +45,7 @@ namespace Assets.Scripts.Components
             }
 
             int colliders = Physics
-                .OverlapBox(_collider.transform.position + _collider.bounds.center, _collider.bounds.extents, Quaternion.identity)
+                .OverlapBox(_collider.bounds.center, _collider.bounds.size * 0.5f, Quaternion.identity)
                 .Select(_ => _.GetComponent<PuzzleEntity>())
                 .Count(_ => _ != null);
             if (colliders != 0)
@@ -54,12 +54,6 @@ namespace Assets.Scripts.Components
             }
 
             Deactivate();
-        }
-
-        void OnDrawGizmos()
-        {
-            if (!Application.isPlaying) return;
-            Gizmos.DrawCube(_collider.transform.position + _collider.bounds.center, _collider.bounds.size);
         }
 
         public override void Activate()
