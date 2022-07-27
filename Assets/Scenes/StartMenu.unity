@@ -547,7 +547,7 @@ AudioSource:
   m_GameObject: {fileID: 358988536}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -7293524022589267753, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
+  OutputAudioMixerGroup: {fileID: 5901649997474978892, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
   m_audioClip: {fileID: 8300000, guid: d1663f3e93ad56a41b2ca9d6970770de, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -675,7 +675,7 @@ AudioSource:
   m_GameObject: {fileID: 499819988}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -7293524022589267753, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
+  OutputAudioMixerGroup: {fileID: 5901649997474978892, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
   m_audioClip: {fileID: 8300000, guid: 09514298acd03ff489b90df98fa886c7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -874,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: 25.647644}
+  m_AnchoredPosition: {x: -220, y: 27.08}
   m_SizeDelta: {x: 584, y: 107.38739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573038057
@@ -1600,7 +1600,7 @@ AudioSource:
   m_GameObject: {fileID: 1506849796}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -7293524022589267753, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
+  OutputAudioMixerGroup: {fileID: 5901649997474978892, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
   m_audioClip: {fileID: 8300000, guid: 723ea27f786b5864da8ff13b22e467e2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1790,7 +1790,7 @@ AudioSource:
   m_GameObject: {fileID: 1765746544}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -7293524022589267753, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
+  OutputAudioMixerGroup: {fileID: 5901649997474978892, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
   m_audioClip: {fileID: 8300000, guid: 301f93e50a1671245ae57852b8725c24, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1925,8 +1925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c03efacb330504295fc01ebcc7c4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1810751624}
-  nextButton: {fileID: 295997825}
+  _mainMenu: {fileID: 1810751624}
+  _nextButton: {fileID: 295997825}
   _slideSound: {fileID: 1765746545}
 --- !u!95 &1789919471
 Animator:

@@ -56,7 +56,7 @@ public class StartMenu : MonoBehaviour
     IEnumerator ShowNextButton()
     {
         _slideSound.Play();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         _nextButton.SetActive(true);
