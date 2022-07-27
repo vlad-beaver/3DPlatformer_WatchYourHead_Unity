@@ -348,7 +348,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.9800177, y: 8.006041, z: 1.0257416}
+  m_Size: {x: 7.9800177, y: 8.006041, z: 2.5}
   m_Center: {x: 3.9900084, y: 4.0030203, z: 0.5128708}
 --- !u!114 &3285351604695835011
 MonoBehaviour:
@@ -363,10 +363,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onComplete: 0
-  _characterAnimator: {fileID: 0}
-  _checkpointRobot: {fileID: 3285351605187365663}
+  _displayAnimator: {fileID: 0}
+  _checkpointPlayer: {fileID: 0}
   _head: {fileID: 0}
   _checkpointHead: {fileID: 3285351603630652454}
+  _dangerColor: {r: 0, g: 0, b: 0, a: 0}
+  _safeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3285351604695835013
 MonoBehaviour:
   m_ObjectHideFlags: 0
