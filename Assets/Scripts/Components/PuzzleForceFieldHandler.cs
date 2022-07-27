@@ -52,7 +52,8 @@ public class PuzzleForceFieldHandler : PuzzleComponent
 
         var cached = _checkpointPlayer.position;
         cached.y = PuzzlePlayer.Instance.transform.position.y;
-        PuzzlePlayer.Instance.transform.DOMove(cached, 1f);
+        PuzzlePlayer.Instance.transform.position = cached;
+        //PuzzlePlayer.Instance.transform.DOMove(cached, 1f);
         _head.DOMove(_checkpointHead.position, 1f);
     }
 }
