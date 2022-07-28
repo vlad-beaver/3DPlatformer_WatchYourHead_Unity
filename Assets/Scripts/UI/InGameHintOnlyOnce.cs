@@ -13,11 +13,21 @@ public class InGameHintOnlyOnce : MonoBehaviour
     private TextMeshProUGUI _popUpText;
     [SerializeField]
     private BoxCollider _boxTrigger;
+    [SerializeField]
+    private string _key;
 
 
     void OnTriggerEnter(Collider other)
     {
-         StartCoroutine(Text());
+        if (PlayerPrefs.HasKey(_key))
+        {
+            return;
+        }
+        else
+        {
+            StartCoroutine(Text());
+            PlayerPrefs.SetString(_key, _key);
+        }
     }
     void OnTriggerStay(Collider other)
     {

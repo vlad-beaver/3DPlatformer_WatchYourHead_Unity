@@ -24,18 +24,36 @@ public class PuzzleForceFieldHandler : PuzzleComponent
     private Renderer _renderer;
     private Collider _collider;
 
+    private bool _isForce = false;
+    private Vector3 _checkPointPos;
+    [SerializeField]
+    private float _forceSpeed = 1.1f;
+
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
         _collider = GetComponent<Collider>();
 
         PuzzlePlayer.Instance.HasHead.OnValueChanged += (_, newValue) =>
+        {
+            _collider.enabled = !newValue;
             _renderer.material.DOColor(newValue ? _safeColor : _dangerColor, "_Emission", 1f);
+        };
+        _checkPointPos = _checkpointPlayer.position;
+        _checkPointPos.y = PuzzlePlayer.Instance.transform.position.y;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _collider.enabled = !PuzzlePlayer.Instance.HasHead;
+        if (_isForce)
+        {
+            PuzzlePlayer.Instance.transform.position = Vector3.Lerp(PuzzlePlayer.Instance.transform.position, _checkPointPos, Time.fixedDeltaTime * _forceSpeed);
+            Debug.Log(Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos));
+            if (Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos) < 3)
+            {
+                _isForce = false;
+            }
+        }
     }
 
     public override void Activate()
@@ -50,9 +68,10 @@ public class PuzzleForceFieldHandler : PuzzleComponent
 
         _displayAnimator.Play("OnComplete");
 
-        var cached = _checkpointPlayer.position;
-        cached.y = PuzzlePlayer.Instance.transform.position.y;
-        PuzzlePlayer.Instance.transform.position = cached;
+        _isForce = true;
+        //var cached = _checkpointPlayer.position;
+        //cached.y = PuzzlePlayer.Instance.transform.position.y;
+        //PuzzlePlayer.Instance.transform.position = cached;
         //PuzzlePlayer.Instance.transform.DOMove(cached, 1f);
         _head.DOMove(_checkpointHead.position, 1f);
     }

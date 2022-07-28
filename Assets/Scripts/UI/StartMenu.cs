@@ -50,6 +50,7 @@ public class StartMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("MainLevel");
     }
 

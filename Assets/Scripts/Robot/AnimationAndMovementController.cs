@@ -420,8 +420,7 @@ public class AnimationAndMovementController : PuzzlePlayer
 
     public override void Kill()
     {
-        var scene = SceneManager.GetActiveScene().name;
+        //GetComponentInChildren<ParticleSystem>().Play();
         DOTween.KillAll();
-        SceneManager.LoadScene(scene);
     }
 }
