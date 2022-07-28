@@ -27,7 +27,6 @@ namespace Assets.Scripts.Components
         IEnumerator DieEffects()
         {
             yield return new WaitForSeconds(0.5f);
-            FindObjectsOfType<ParticleSystem>().ToList().ForEach(ps => ps.Play());
             //FindObjectsOfType<ParticleSystem>().ToList().ForEach(ps => ps.Stop());
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

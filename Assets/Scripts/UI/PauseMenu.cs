@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,8 +14,11 @@ public class PauseMenu : MonoBehaviour
     private GameObject _authorsMenuUI;
     [SerializeField]
     private GameObject _inGameUI;
-
+    [SerializeField]
     public AudioMixerGroup mixer;
+    [SerializeField]
+    public GameObject _checkMark;
+    private float _volume;
 
     void Update()
     {
@@ -35,6 +39,12 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.visible = false;
         Time.timeScale = 1f;
+
+        mixer.audioMixer.GetFloat("MasterVolume", out _volume);
+        if (_volume != 0)
+        {
+            _checkMark.SetActive(false);
+        }
     }
 
     public void Resume()
@@ -70,18 +80,18 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // For setting screen in UI
-
-    //private void ToggleMusic()
-    //{
-    //    if (GameIsPaused)
-    //        mixer.audioMixer.SetFloat("MasterVolume", 0);
-    //    else
-    //        mixer.audioMixer.SetFloat("MasterVolume", -80);
-    //}
-
-    //private void ChangeVolume(float volume)
-    //{
-    //    mixer.audioMixer.GetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
-    //}
+    // For music setting in UI
+    public void ToggleMusic(bool enabled)
+    {
+        if (enabled)
+        {
+            mixer.audioMixer.SetFloat("MasterVolume", 0);
+            _checkMark.SetActive(true);
+        }
+        else
+        {
+            mixer.audioMixer.SetFloat("MasterVolume", -80);
+            _checkMark.SetActive(false);
+        }
+    }
 }

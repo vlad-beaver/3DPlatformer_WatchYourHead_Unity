@@ -49,7 +49,7 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         {
             PuzzlePlayer.Instance.transform.position = Vector3.Lerp(PuzzlePlayer.Instance.transform.position, _checkPointPos, Time.fixedDeltaTime * _forceSpeed);
             Debug.Log(Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos));
-            if (Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos) < 3)
+            if (Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos) < 4.5f)
             {
                 _isForce = false;
             }

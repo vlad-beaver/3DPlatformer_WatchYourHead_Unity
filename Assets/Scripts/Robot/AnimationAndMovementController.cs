@@ -420,7 +420,7 @@ public class AnimationAndMovementController : PuzzlePlayer
 
     public override void Kill()
     {
-        //GetComponentInChildren<ParticleSystem>().Play();
+        GetComponentInChildren<ParticleSystem>().Play();
         DOTween.KillAll();
     }
 }
