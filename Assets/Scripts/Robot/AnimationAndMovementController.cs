@@ -363,7 +363,7 @@ public class AnimationAndMovementController : PuzzlePlayer
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         HandleRotation();
 
@@ -378,7 +378,7 @@ public class AnimationAndMovementController : PuzzlePlayer
             _appliedMovement.z = _moveDir.z;
         }
 
-        _characterController.Move(_appliedMovement * Time.deltaTime);
+        _characterController.Move(_appliedMovement * Time.fixedDeltaTime);
 
         HandleGravity();
         HandleJump();
@@ -391,6 +391,35 @@ public class AnimationAndMovementController : PuzzlePlayer
             _currentObjectRigidbody.rotation = _robotHead.rotation;
         }
     }
+
+    //void Update()
+    //{
+    //    HandleRotation();
+
+    //    if (_isRunPressed)
+    //    {
+    //        _appliedMovement.x = _moveDirRun.x;
+    //        _appliedMovement.z = _moveDirRun.z;
+    //    }
+    //    else
+    //    {
+    //        _appliedMovement.x = _moveDir.x;
+    //        _appliedMovement.z = _moveDir.z;
+    //    }
+
+    //    _characterController.Move(_appliedMovement * Time.deltaTime);
+
+    //    HandleGravity();
+    //    HandleJump();
+    //    HandleDropDown();
+    //    HandleAnimation();
+
+    //    if (_currentObjectRigidbody)
+    //    {
+    //        _currentObjectRigidbody.position = _robotHead.position;
+    //        _currentObjectRigidbody.rotation = _robotHead.rotation;
+    //    }
+    //}
 
     private void OnEnable()
     {

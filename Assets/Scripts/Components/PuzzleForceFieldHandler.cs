@@ -43,7 +43,7 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         _checkPointPos.y = PuzzlePlayer.Instance.transform.position.y;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_isForce)
         {
