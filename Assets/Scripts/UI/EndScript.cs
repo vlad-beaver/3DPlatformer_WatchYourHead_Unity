@@ -10,25 +10,28 @@ public class EndScript : MonoBehaviour
     [SerializeField]
     private GameObject _endGameMenu;
     [SerializeField]
-    private GameObject _nextButton;
+    private GameObject _nextText;
 
     private Image _comics;
 
     private int _keyPressCounter = 0;
 
-    public void NextComics()
+    private void Update()
     {
-        _nextButton.SetActive(false);
-        _comics.enabled = false;
-        if (_keyPressCounter >= 2)
+        if (Input.anyKeyDown && _nextText.activeSelf)
         {
-            _endGameMenu.SetActive(true);
-        }
-        else
-        {
-            _comics = GameObject.Find("Comics" + (++_keyPressCounter)).GetComponent<Image>();
-            _comics.enabled = true;
-            StartCoroutine(ShowNextButton());
+            _nextText.SetActive(false);
+            _comics.enabled = false;
+            if (_keyPressCounter >= 2)
+            {
+                _endGameMenu.SetActive(true);
+            }
+            else
+            {
+                _comics = GameObject.Find("Comics" + (++_keyPressCounter)).GetComponent<Image>();
+                _comics.enabled = true;
+                StartCoroutine(ShowNextText());
+            }
         }
     }
 
@@ -38,7 +41,7 @@ public class EndScript : MonoBehaviour
         _comics.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        StartCoroutine(ShowNextButton());
+        StartCoroutine(ShowNextText());
     }
     public void BackToMainMenu()
     {
@@ -50,12 +53,12 @@ public class EndScript : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator ShowNextButton()
+    IEnumerator ShowNextText()
     {
         yield return new WaitForSeconds(1);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-        _nextButton.SetActive(true);
+        _nextText.SetActive(true);
     }
 
 }

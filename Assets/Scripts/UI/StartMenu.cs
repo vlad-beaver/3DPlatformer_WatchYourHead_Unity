@@ -9,7 +9,7 @@ public class StartMenu : MonoBehaviour
     [SerializeField]
     private GameObject _mainMenu;
     [SerializeField]
-    private GameObject _nextButton;
+    private GameObject _nextText;
     private Image _comics;
 
     [SerializeField]
@@ -30,23 +30,22 @@ public class StartMenu : MonoBehaviour
                 _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
                 _mainMenu.SetActive(false);
                 _comics.enabled = true;
-                StartCoroutine(ShowNextButton());
+                StartCoroutine(ShowNextText());
             }
-        }
-    }
-    public void NextComics()
-    {
-        _nextButton.SetActive(false);
-        _comics.enabled = false;
-        if (keyPressCounter >= 4)
+        }else if (Input.anyKeyDown && _nextText.activeSelf)
         {
-            PlayGame();
-            return;
+            _nextText.SetActive(false);
+            _comics.enabled = false;
+            if (keyPressCounter >= 4)
+            {
+                PlayGame();
+                return;
+            }
+            _slideSound = GameObject.Find("SlideMusic" + (++slidePressCounter)).GetComponent<AudioSource>();
+            _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
+            _comics.enabled = true;
+            StartCoroutine(ShowNextText());
         }
-        _slideSound = GameObject.Find("SlideMusic" + (++slidePressCounter)).GetComponent<AudioSource>();
-        _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
-        _comics.enabled = true;
-        StartCoroutine(ShowNextButton());
     }
     public void PlayGame()
     {
@@ -54,12 +53,12 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("MainLevel");
     }
 
-    IEnumerator ShowNextButton()
+    IEnumerator ShowNextText()
     {
         _slideSound.Play();
         yield return new WaitForSeconds(2);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-        _nextButton.SetActive(true);
+        _nextText.SetActive(true);
     }
 }
