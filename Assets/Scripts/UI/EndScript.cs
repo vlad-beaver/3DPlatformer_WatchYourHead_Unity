@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndScript : MonoBehaviour
+public class EndScript : PuzzleComponent
 {
     [SerializeField]
     private GameObject _endGameMenu;
     [SerializeField]
     private GameObject _nextText;
+
+    private int _numOfCadrs = 2;
 
     private Image _comics;
 
@@ -22,7 +24,15 @@ public class EndScript : MonoBehaviour
         {
             _nextText.SetActive(false);
             _comics.enabled = false;
-            if (_keyPressCounter >= 2)
+            if (SceneManager.GetActiveScene().name == "SecondEnding")
+            {
+                _numOfCadrs = 3;
+            }
+            else
+            {
+                _numOfCadrs = 2;
+            }
+            if (_keyPressCounter >= _numOfCadrs)
             {
                 _endGameMenu.SetActive(true);
             }
