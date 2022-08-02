@@ -339,7 +339,7 @@ public class AnimationAndMovementController : PuzzlePlayer
             return;
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !_currentObjectRigidbody)
         {
             HasHead.Value = true;
             if (_currentObjectRigidbody)

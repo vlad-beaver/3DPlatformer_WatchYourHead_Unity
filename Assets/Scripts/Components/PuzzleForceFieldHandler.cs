@@ -9,7 +9,6 @@ public class PuzzleForceFieldHandler : PuzzleComponent
     private Animator _displayAnimator;
     [SerializeField]
     private Transform _checkpointPlayer;
-    [SerializeField]
     private Rigidbody _head;
     [SerializeField]
     private Transform _checkpointHead;
