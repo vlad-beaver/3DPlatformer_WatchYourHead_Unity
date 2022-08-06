@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Keys CurrentLanguage="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Key Name="PressAnyKey">
+    <Translates>
+      <en>Press any key...</en>
+      <ru>Нажмите любyю клавишу...</ru>
+      <by>Націсніце любую клавішу...</by>
+    </Translates>
+  </Key>
+  <Key Name="Test2">
+    <Translates>
+      <en>Press any key to continue</en>
+      <ru>Нажмите любую клавишу чтобы продолжить</ru>
+      <by>Націсніце любую клавішу, каб працягнуць</by>
+    </Translates>
+  </Key>
+  <Key Name="Test3">
+    <Translates>
+      <en>I lost my head in love...</en>
+      <ru>я потерял голову от любви...</ru>
+      <by>я страціў галаву ад кахання</by>
+    </Translates>
+  </Key>
+  <Key Name="Test4">
+    <Translates>
+      <en>robotics science laboratory</en>
+      <ru>научная лаборатория по созданию роботов</ru>
+      <by>навуковая лабараторыя па стварэнні робатаў</by>
+    </Translates>
+  </Key>
+  <Key Name="Test5">
+    <Translates>
+      <en>new game</en>
+      <ru>новая игра</ru>
+      <by>новая гульня</by>
+    </Translates>
+  </Key>
+  <Key Name="Test6">
+    <Translates>
+      <en>exit</en>
+      <ru>выход из игры</ru>
+      <by>выхад з гульні</by>
+    </Translates>
+  </Key>
+  <Key Name="Test7">
+    <Translates>
+      <en>pause</en>
+      <ru>пауза</ru>
+      <by>паўза</by>
+    </Translates>
+  </Key>
+  <Key Name="Test8">
+    <Translates>
+      <en>throw head</en>
+      <ru>положить голову</ru>
+      <by>пакласці галаву</by>
+    </Translates>
+  </Key>
+  <Key Name="Test9">
+    <Translates>
+      <en>take head</en>
+      <ru>поднять голову</ru>
+      <by>падняць галаву</by>
+    </Translates>
+  </Key>
+  <Key Name="Test10">
+    <Translates>
+      <en>jump</en>
+      <ru>прыгнуть</ru>
+      <by>скокнуць</by>
+    </Translates>
+  </Key>
+  <Key Name="Test11">
+    <Translates>
+      <en>run</en>
+      <ru>ускориться</ru>
+      <by>паскорыцца</by>
+    </Translates>
+  </Key>
+  <Key Name="Test12">
+    <Translates>
+      <en>authors</en>
+      <ru>создатели</ru>
+      <by>стваральнікі</by>
+    </Translates>
+  </Key>
+  <Key Name="Test13">
+    <Translates>
+      <en>back</en>
+      <ru>назад</ru>
+      <by>назад</by>
+    </Translates>
+  </Key>
+  <Key Name="Test14">
+    <Translates>
+      <en>game is on pause</en>
+      <ru>игра на паузе</ru>
+      <by>гульня на паўзе</by>
+    </Translates>
+  </Key>
+  <Key Name="Test15">
+    <Translates>
+      <en>continue</en>
+      <ru>продолжить</ru>
+      <by>працягнуць</by>
+    </Translates>
+  </Key>
+  <Key Name="Test16">
+    <Translates>
+      <en>authors</en>
+      <ru>авторы</ru>
+      <by>аўтары</by>
+    </Translates>
+  </Key>
+  <Key Name="Test17">
+    <Translates>
+      <en>music</en>
+      <ru>музыка</ru>
+      <by>музыка</by>
+    </Translates>
+  </Key>
+  <Key Name="Test18">
+    <Translates>
+      <en>movement ~ camera control ~</en>
+      <ru>Перемещение ~ Контроль камерой ~</ru>
+      <by>Перамяшчэнне ~ Кантроль камерай ~</by>
+    </Translates>
+  </Key>
+  <Key Name="Test19">
+    <Translates>
+      <en>jump ~ hold ~ or ~ to run</en>
+      <ru>прыжок ~ зажмите ~ или ~ для быстрого бега</ru>
+      <by>скачок ~ зацісніце ~ або ~ для хуткага бегу</by>
+    </Translates>
+  </Key>
+  <Key Name="Test20">
+    <Translates>
+      <en>throw head ~ take head ~</en>
+      <ru>положить голову робота ~ Взять голову робота ~</ru>
+      <by>пакласці галаву робата ~ Узяць галаву робата ~</by>
+    </Translates>
+  </Key>
+  <Key Name="Test21">
+    <Translates>
+      <en>head can help me climb this ledge</en>
+      <ru>голова может помочь мне взабраться на этот уступ</ru>
+      <by>галава можа дапамагчы мне забрацца на гэты ўступ</by>
+    </Translates>
+  </Key>
+  <Key Name="Language">
+    <Translates>
+      <en>Choose language</en>
+      <ru>Выберите язык</ru>
+      <by>Абярыце мову</by>
+    </Translates>
+  </Key>
+</Keys>
