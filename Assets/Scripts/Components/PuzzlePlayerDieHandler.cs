@@ -19,6 +19,7 @@ namespace Assets.Scripts.Components
         {
             base.Activate();
             InputSystem.DisableAllEnabledActions();
+            PuzzlePlayer.Instance.GetComponent<Animator>().Play("Dead");
             _deathSound.Play();
             PuzzlePlayer.Instance.Kill();
             StartCoroutine(DieEffects());

@@ -10,6 +10,9 @@ public class PuzzleForceFieldHandler : PuzzleComponent
     [SerializeField]
     private Transform _checkpointPlayer;
     [SerializeField]
+    private Rigidbody _headAlive;
+    [SerializeField]
+    private Rigidbody _headDead;
     private Rigidbody _head;
     [SerializeField]
     private Transform _checkpointHead;
@@ -73,6 +76,14 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         //cached.y = PuzzlePlayer.Instance.transform.position.y;
         //PuzzlePlayer.Instance.transform.position = cached;
         //PuzzlePlayer.Instance.transform.DOMove(cached, 1f);
+        if (PuzzlePlayer.Instance.HeadDead)
+        {
+            _head = _headDead;
+        }
+        else
+        {
+            _head = _headAlive;
+        }
         _head.DOMove(_checkpointHead.position, 1f);
     }
 }

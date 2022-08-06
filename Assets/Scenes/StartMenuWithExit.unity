@@ -674,8 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b4f926d3f7b314a8459e3800fe3116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1066156549}
-  nextButton: {fileID: 786378705}
+  _mainMenu: {fileID: 0}
+  _nextButton: {fileID: 0}
   _slideSound: {fileID: 1254258183}
 --- !u!1 &352423143
 GameObject:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4284700500
-  m_fontColor: {r: 0.3302332, g: 0.34118018, b: 0.38679248, a: 1}
+  m_fontColor: {r: 0.32941177, g: 0.34117648, b: 0.3882353, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

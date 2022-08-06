@@ -5,6 +5,7 @@
         public static PuzzlePlayer Instance { get; protected set; }
 
         public ObservableValue<bool> HasHead;
+        public bool HeadDead;
 
         protected PuzzlePlayer()
         {

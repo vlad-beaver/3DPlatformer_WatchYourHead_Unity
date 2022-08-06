@@ -339,7 +339,7 @@ public class AnimationAndMovementController : PuzzlePlayer
             return;
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !_currentObjectRigidbody)
         {
             HasHead.Value = true;
             if (_currentObjectRigidbody)
@@ -360,6 +360,16 @@ public class AnimationAndMovementController : PuzzlePlayer
                 _currentObjectRigidbody.isKinematic = true;
                 _currentObjectCollider.enabled = false;
             }
+        }
+        if (_currentObjectRigidbody.GetComponent<Animator>())
+        {
+            HeadDead = false;
+            Debug.Log("false");
+        }
+        else
+        {
+            HeadDead = true;
+            Debug.Log("true");
         }
     }
 
@@ -391,35 +401,6 @@ public class AnimationAndMovementController : PuzzlePlayer
             _currentObjectRigidbody.rotation = _robotHead.rotation;
         }
     }
-
-    //void Update()
-    //{
-    //    HandleRotation();
-
-    //    if (_isRunPressed)
-    //    {
-    //        _appliedMovement.x = _moveDirRun.x;
-    //        _appliedMovement.z = _moveDirRun.z;
-    //    }
-    //    else
-    //    {
-    //        _appliedMovement.x = _moveDir.x;
-    //        _appliedMovement.z = _moveDir.z;
-    //    }
-
-    //    _characterController.Move(_appliedMovement * Time.deltaTime);
-
-    //    HandleGravity();
-    //    HandleJump();
-    //    HandleDropDown();
-    //    HandleAnimation();
-
-    //    if (_currentObjectRigidbody)
-    //    {
-    //        _currentObjectRigidbody.position = _robotHead.position;
-    //        _currentObjectRigidbody.rotation = _robotHead.rotation;
-    //    }
-    //}
 
     private void OnEnable()
     {
