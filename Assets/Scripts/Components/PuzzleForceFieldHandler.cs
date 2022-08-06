@@ -84,6 +84,12 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         {
             _head = _headAlive;
         }
-        _head.DOMove(_checkpointHead.position, 1f);
+        //_head.isKinematic = true;
+        //_head.DOMove(_checkpointHead.position, 1f);
+        //_head.isKinematic = false;
+        _head.isKinematic = true;
+        _head.transform.position = _checkpointHead.transform.position;
+        _head.transform.rotation = _checkpointHead.transform.rotation;
+        _head.isKinematic = false;
     }
 }
