@@ -2284,6 +2284,7 @@ MonoBehaviour:
   _authorsMenuUI: {fileID: 1637449989623496654}
   _inGameUI: {fileID: 2979425122754322739}
   mixer: {fileID: 5901649997474978892, guid: 6ecd9708ddd4d1c46aebc45b24ad8067, type: 2}
+  _checkMark: {fileID: 0}
 --- !u!95 &4405014390996792748
 Animator:
   serializedVersion: 4
