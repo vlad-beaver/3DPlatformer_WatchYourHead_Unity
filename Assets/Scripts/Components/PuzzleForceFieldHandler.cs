@@ -52,7 +52,7 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         {
             PuzzlePlayer.Instance.transform.position = Vector3.Lerp(PuzzlePlayer.Instance.transform.position, _checkPointPos, Time.fixedDeltaTime * _forceSpeed);
             Debug.Log(Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos));
-            if (Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos) < 4.5f)
+            if (Vector3.Distance(PuzzlePlayer.Instance.transform.position, _checkPointPos) < 5f)
             {
                 _isForce = false;
             }
@@ -84,12 +84,12 @@ public class PuzzleForceFieldHandler : PuzzleComponent
         {
             _head = _headAlive;
         }
-        //_head.isKinematic = true;
-        //_head.DOMove(_checkpointHead.position, 1f);
-        //_head.isKinematic = false;
         _head.isKinematic = true;
-        _head.transform.position = _checkpointHead.transform.position;
-        _head.transform.rotation = _checkpointHead.transform.rotation;
+        _head.DOMove(_checkpointHead.position, 1f);
         _head.isKinematic = false;
+        //_head.isKinematic = true;
+        //_head.transform.position = _checkpointHead.transform.position;
+        //_head.transform.rotation = _checkpointHead.transform.rotation;
+        //_head.isKinematic = false;
     }
 }
