@@ -11,6 +11,10 @@ public class EndScript : PuzzleComponent
     private GameObject _endGameMenu;
     [SerializeField]
     private GameObject _nextText;
+    [SerializeField]
+    private AudioSource _firstEndingSound;
+    [SerializeField]
+    private AudioSource _secondEndingSound;
 
     private int _numOfCadrs = 2;
 
@@ -39,9 +43,19 @@ public class EndScript : PuzzleComponent
             else
             {
                 _comics = GameObject.Find("Comics" + (++_keyPressCounter)).GetComponent<Image>();
+                SoundHandler();
                 _comics.enabled = true;
                 StartCoroutine(ShowNextText());
             }
+        }
+    }
+
+    private void SoundHandler()
+    {
+        if(SceneManager.GetActiveScene().name == "SecondEnding" && _keyPressCounter == 2)
+        {
+            _firstEndingSound.Stop();
+            _secondEndingSound.Play();
         }
     }
 
