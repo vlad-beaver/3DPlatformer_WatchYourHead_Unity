@@ -52,7 +52,7 @@ public class EndScript : PuzzleComponent
 
     private void SoundHandler()
     {
-        if(SceneManager.GetActiveScene().name == "SecondEnding" && _keyPressCounter == 2)
+        if (SceneManager.GetActiveScene().name == "SecondEnding" && _keyPressCounter == 2)
         {
             _firstEndingSound.Stop();
             _secondEndingSound.Play();
@@ -79,7 +79,7 @@ public class EndScript : PuzzleComponent
 
     IEnumerator ShowNextText()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         var myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         _nextText.SetActive(true);
