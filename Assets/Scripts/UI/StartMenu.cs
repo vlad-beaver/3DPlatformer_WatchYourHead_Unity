@@ -17,7 +17,11 @@ public class StartMenu : MonoBehaviour
 
     private int keyPressCounter=0;
     private int slidePressCounter = 1;
-
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     void Update()
     {
         if (Input.anyKeyDown && _mainMenu.activeSelf)

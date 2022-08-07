@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Keys CurrentLanguage="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Key Name="PressAnyKey">
+<Keys CurrentLanguage="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Key Name="Нажмите любyю клавишу...">
     <Translates>
       <en>Press any key...</en>
       <ru>Нажмите любyю клавишу...</ru>
       <by>Націсніце любую клавішу...</by>
     </Translates>
   </Key>
-  <Key Name="Test2">
+  <Key Name="Нажмите любую клавишу чтобы продолжить">
     <Translates>
       <en>Press any key to continue</en>
       <ru>Нажмите любую клавишу чтобы продолжить</ru>
@@ -28,14 +28,14 @@
       <by>навуковая лабараторыя па стварэнні робатаў</by>
     </Translates>
   </Key>
-  <Key Name="Test5">
+  <Key Name="новая игра">
     <Translates>
       <en>new game</en>
       <ru>новая игра</ru>
       <by>новая гульня</by>
     </Translates>
   </Key>
-  <Key Name="Test6">
+  <Key Name="выход из игры">
     <Translates>
       <en>exit</en>
       <ru>выход из игры</ru>
@@ -77,7 +77,14 @@
       <by>паскорыцца</by>
     </Translates>
   </Key>
-  <Key Name="Test12">
+  <Key Name="РОБОТ СЛОМАН">
+    <Translates>
+      <en>ROBOT IS BROKEN</en>
+      <ru>РОБОТ СЛОМАН</ru>
+      <by>РОБАТ ЗЛАМАНЫ</by>
+    </Translates>
+  </Key>
+  <Key Name="Создатели">
     <Translates>
       <en>authors</en>
       <ru>создатели</ru>
@@ -89,6 +96,44 @@
       <en>back</en>
       <ru>назад</ru>
       <by>назад</by>
+    </Translates>
+  </Key>
+  <Key Name="Конец">
+    <Translates>
+      <en>The end</en>
+      <ru>Конец</ru>
+      <by>Канец</by>
+    </Translates>
+  </Key>
+  <Key Name="люди">
+    <Translates>
+      <en>Vlad Savin
+Dasha Astrovskaya
+Nastya Drozhzha
+Nastya Horuzhaya
+Diana Gurinovich
+Kristina Vasilyeva
+Pasha Bondarovich
+Dima Khudnitsky
+Kostya Stelmakov</en>
+      <ru>Владислав Савин
+Дарья Астровская
+Анастасия Дрожжа
+Анастасия Хоружая
+Диана Гуринович
+Кристина Васильева
+Павел Бондарович
+Дмитрий Худницкий
+Константин Cтельмаков</ru>
+      <by>Уладзіслаў Савін
+Дар'я Астроўская
+Анастасія Дрожжа
+Анастасія Харужая
+Дзіяна Гурыновіч
+Крысціна Васільева
+Павел Бандаровіч
+Дзмітрый Худніцкі
+Канстанцін Стэльмакоў</by>
     </Translates>
   </Key>
   <Key Name="Test14">
@@ -147,11 +192,11 @@
       <by>галава можа дапамагчы мне забрацца на гэты ўступ</by>
     </Translates>
   </Key>
-  <Key Name="Language">
+  <Key Name="Начать заново">
     <Translates>
-      <en>Choose language</en>
-      <ru>Выберите язык</ru>
-      <by>Абярыце мову</by>
+      <en>Start again</en>
+      <ru>Начать заново</ru>
+      <by>Пачаць зноў</by>
     </Translates>
   </Key>
 </Keys>
