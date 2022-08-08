@@ -14,7 +14,10 @@ public class StartMenu : MonoBehaviour
 
     [SerializeField]
     private AudioSource _slideSound;
-
+    [SerializeField]
+    private GameObject _comics3Text;
+    [SerializeField]
+    private GameObject _comics4Text;
     private int keyPressCounter=0;
     private int slidePressCounter = 1;
     private void Start()
@@ -38,6 +41,8 @@ public class StartMenu : MonoBehaviour
             }
         }else if (Input.anyKeyDown && _nextText.activeSelf)
         {
+            _comics3Text.SetActive(false);
+            _comics4Text.SetActive(false);
             _nextText.SetActive(false);
             _comics.enabled = false;
             if (keyPressCounter >= 4)
@@ -48,6 +53,14 @@ public class StartMenu : MonoBehaviour
             _slideSound = GameObject.Find("SlideMusic" + (++slidePressCounter)).GetComponent<AudioSource>();
             _comics = GameObject.Find("Comics" + (++keyPressCounter)).GetComponent<Image>();
             _comics.enabled = true;
+            if (keyPressCounter == 3)
+            {
+                _comics3Text.SetActive(true);
+            }
+            if (keyPressCounter == 4)
+            {
+                _comics4Text.SetActive(true);
+            }
             StartCoroutine(ShowNextText());
         }
     }
