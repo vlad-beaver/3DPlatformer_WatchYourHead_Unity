@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Keys CurrentLanguage="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Keys CurrentLanguage="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Key Name="Нажмите любyю клавишу...">
     <Translates>
       <en>Press any key...</en>
@@ -185,11 +185,11 @@ Kostya Stelmakov</en>
       <by><![CDATA[пакласці галаву робата   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                   Узяць галаву робата   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></by>
     </Translates>
   </Key>
-  <Key Name="Test21">
+  <Key Name="голова может помочь">
     <Translates>
-      <en>head can help me climb this ledge</en>
-      <ru>голова может помочь мне взабраться на этот уступ</ru>
-      <by>галава можа дапамагчы мне забрацца на гэты ўступ</by>
+      <en>                                                                         head can help me climb this ledge</en>
+      <ru>                                                                         голова может помочь мне взабраться на этот уступ</ru>
+      <by>                                                                         галава можа дапамагчы мне забрацца на гэты ўступ</by>
     </Translates>
   </Key>
   <Key Name="Начать заново">

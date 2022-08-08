@@ -336,7 +336,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 847652338}
         m_TargetAssemblyTypeName: EndScript, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -1252,6 +1252,8 @@ MonoBehaviour:
   _onComplete: 0
   _endGameMenu: {fileID: 665473448}
   _nextText: {fileID: 973936808}
+  _firstEndingSound: {fileID: 0}
+  _secondEndingSound: {fileID: 0}
 --- !u!1 &973936808
 GameObject:
   m_ObjectHideFlags: 0

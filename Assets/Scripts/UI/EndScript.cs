@@ -39,6 +39,8 @@ public class EndScript : PuzzleComponent
             if (_keyPressCounter >= _numOfCadrs)
             {
                 _endGameMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
@@ -63,8 +65,8 @@ public class EndScript : PuzzleComponent
     {
         _comics = GameObject.Find("Comics" + (++_keyPressCounter)).GetComponent<Image>();
         _comics.enabled = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(ShowNextText());
     }
     public void BackToMainMenu()
