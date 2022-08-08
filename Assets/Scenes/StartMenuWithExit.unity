@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4183140}
   - component: {fileID: 4183139}
   - component: {fileID: 4183141}
+  - component: {fileID: 4183142}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -260,6 +261,18 @@ CanvasRenderer:
   m_GameObject: {fileID: 4183137}
   m_CullTransparentMesh: 1
 --- !u!114 &4183141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5105c1af25af4814b9c1038a54809705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4183142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2181,6 +2194,7 @@ GameObject:
   - component: {fileID: 1450298570}
   - component: {fileID: 1450298569}
   - component: {fileID: 1450298571}
+  - component: {fileID: 1450298572}
   m_Layer: 5
   m_Name: exit
   m_TagString: Untagged
@@ -2263,7 +2277,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2306,6 +2320,18 @@ CanvasRenderer:
   m_GameObject: {fileID: 1450298567}
   m_CullTransparentMesh: 1
 --- !u!114 &1450298571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450298567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5105c1af25af4814b9c1038a54809705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450298572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Keys CurrentLanguage="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Keys CurrentLanguage="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Key Name="Нажмите любyю клавишу...">
     <Translates>
       <en>Press any key...</en>
@@ -14,18 +14,18 @@
       <by>Націсніце любую клавішу, каб працягнуць</by>
     </Translates>
   </Key>
-  <Key Name="Test3">
+  <Key Name="я потерял голову от любви...">
     <Translates>
       <en>I lost my head in love...</en>
       <ru>я потерял голову от любви...</ru>
-      <by>я страціў галаву ад кахання</by>
+      <by>я страціў галаву ад кахання...</by>
     </Translates>
   </Key>
-  <Key Name="Test4">
+  <Key Name="научная лаборатория по созданию роботов">
     <Translates>
-      <en>robotics science laboratory</en>
-      <ru>научная лаборатория по созданию роботов</ru>
-      <by>навуковая лабараторыя па стварэнні робатаў</by>
+      <en>"robotics science laboratory"</en>
+      <ru>"научная лаборатория по созданию роботов"</ru>
+      <by>"навуковая лабараторыя па стварэнні робатаў"</by>
     </Translates>
   </Key>
   <Key Name="новая игра">
@@ -42,39 +42,39 @@
       <by>выхад з гульні</by>
     </Translates>
   </Key>
-  <Key Name="Test7">
+  <Key Name=" - пауза">
     <Translates>
-      <en>pause</en>
-      <ru>пауза</ru>
-      <by>паўза</by>
+      <en> - pause</en>
+      <ru> - пауза</ru>
+      <by> - паўза</by>
     </Translates>
   </Key>
-  <Key Name="Test8">
+  <Key Name=" - положить голову">
     <Translates>
-      <en>throw head</en>
-      <ru>положить голову</ru>
-      <by>пакласці галаву</by>
+      <en> - throw head</en>
+      <ru> - положить голову</ru>
+      <by> - пакласці галаву</by>
     </Translates>
   </Key>
-  <Key Name="Test9">
+  <Key Name="- поднять голову">
     <Translates>
-      <en>take head</en>
-      <ru>поднять голову</ru>
-      <by>падняць галаву</by>
+      <en>- take head</en>
+      <ru>- поднять голову</ru>
+      <by>- падняць галаву</by>
     </Translates>
   </Key>
-  <Key Name="Test10">
+  <Key Name="  - прыгнуть">
     <Translates>
-      <en>jump</en>
-      <ru>прыгнуть</ru>
-      <by>скокнуць</by>
+      <en>  - jump</en>
+      <ru>  - прыгнуть</ru>
+      <by>  - скокнуць</by>
     </Translates>
   </Key>
-  <Key Name="Test11">
+  <Key Name="- ускориться">
     <Translates>
-      <en>run</en>
-      <ru>ускориться</ru>
-      <by>паскорыцца</by>
+      <en>- run</en>
+      <ru>- ускориться</ru>
+      <by>- паскорыцца</by>
     </Translates>
   </Key>
   <Key Name="РОБОТ СЛОМАН">
@@ -91,7 +91,7 @@
       <by>стваральнікі</by>
     </Translates>
   </Key>
-  <Key Name="Test13">
+  <Key Name="Назад">
     <Translates>
       <en>back</en>
       <ru>назад</ru>
@@ -136,39 +136,39 @@ Kostya Stelmakov</en>
 Канстанцін Стэльмакоў</by>
     </Translates>
   </Key>
-  <Key Name="Test14">
+  <Key Name="Игра на паузе">
     <Translates>
       <en>game is on pause</en>
       <ru>игра на паузе</ru>
       <by>гульня на паўзе</by>
     </Translates>
   </Key>
-  <Key Name="Test15">
+  <Key Name="продолжить">
     <Translates>
       <en>continue</en>
       <ru>продолжить</ru>
       <by>працягнуць</by>
     </Translates>
   </Key>
-  <Key Name="Test16">
+  <Key Name="Авторы">
     <Translates>
       <en>authors</en>
       <ru>авторы</ru>
       <by>аўтары</by>
     </Translates>
   </Key>
-  <Key Name="Test17">
+  <Key Name="музыка">
     <Translates>
       <en>music</en>
       <ru>музыка</ru>
       <by>музыка</by>
     </Translates>
   </Key>
-  <Key Name="Test18">
+  <Key Name="Перемещение">
     <Translates>
-      <en>movement ~ camera control ~</en>
-      <ru>Перемещение ~ Контроль камерой ~</ru>
-      <by>Перамяшчэнне ~ Кантроль камерай ~</by>
+      <en><![CDATA[Movement    <voffset=0.3em><size=170%><sprite=5/></size></voffset>camera control    <voffset=0.3em><size=170%><sprite=8/></size></voffset>]]></en>
+      <ru><![CDATA[Перемещение    <voffset=0.3em><size=170%><sprite=5/></size></voffset>Контроль камерой    <voffset=0.3em><size=170%><sprite=8/></size></voffset>]]></ru>
+      <by><![CDATA[Перамяшчэнне    <voffset=0.3em><size=170%><sprite=5/></size></voffset>Кантроль камерай    <voffset=0.3em><size=170%><sprite=8/></size></voffset>]]></by>
     </Translates>
   </Key>
   <Key Name="Test19">
