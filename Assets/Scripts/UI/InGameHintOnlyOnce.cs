@@ -16,7 +16,6 @@ public class InGameHintOnlyOnce : MonoBehaviour
     [SerializeField]
     private string _key;
 
-
     void OnTriggerEnter(Collider other)
     {
         if (PlayerPrefs.HasKey(_key))
@@ -45,8 +44,8 @@ public class InGameHintOnlyOnce : MonoBehaviour
     void ShowPopUp()
     {
         _popUpPhrase.SetActive(true);
-        _popUpText.text = _hintText;
-
+        //_popUpText.text = _hintText;
+        _popUpText.text = LocalizationManager.GetTranslate(_hintText);
     }
 
     IEnumerator Text()

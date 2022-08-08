@@ -44,8 +44,8 @@ public class InGameHintScript : MonoBehaviour
     void ShowPopUp()
     {
         _popUpPhrase.SetActive(true);
-        _popUpText.text = _hintText;
-       
+        //_popUpText.text = _hintText;
+        _popUpText.text = LocalizationManager.GetTranslate(_hintText);
     }
 
     IEnumerator Text()

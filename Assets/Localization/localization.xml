@@ -171,18 +171,18 @@ Kostya Stelmakov</en>
       <by><![CDATA[Перамяшчэнне    <voffset=0.3em><size=170%><sprite=5/></size></voffset>Кантроль камерай    <voffset=0.3em><size=170%><sprite=8/></size></voffset>]]></by>
     </Translates>
   </Key>
-  <Key Name="Test19">
+  <Key Name="прыжок">
     <Translates>
-      <en>jump ~ hold ~ or ~ to run</en>
-      <ru>прыжок ~ зажмите ~ или ~ для быстрого бега</ru>
-      <by>скачок ~ зацісніце ~ або ~ для хуткага бегу</by>
+      <en><![CDATA[jump      <voffset=0.3em><size=170%><sprite=3/></size></voffset>                                            hold      <voffset=0.3em><size=170%><sprite=4/></size></voffset>or    <voffset=0.3em><size=170%><sprite=7/></size></voffset>  to run]]></en>
+      <ru><![CDATA[прыжок      <voffset=0.3em><size=170%><sprite=3/></size></voffset>                                            зажмите      <voffset=0.3em><size=170%><sprite=4/></size></voffset>или    <voffset=0.3em><size=170%><sprite=7/></size></voffset>  для быстрого бега]]></ru>
+      <by><![CDATA[скачок      <voffset=0.3em><size=170%><sprite=3/></size></voffset>                                            зацісніце      <voffset=0.3em><size=170%><sprite=4/></size></voffset>або    <voffset=0.3em><size=170%><sprite=7/></size></voffset>  для хуткага бегу]]></by>
     </Translates>
   </Key>
-  <Key Name="Test20">
+  <Key Name="положить голову робота">
     <Translates>
-      <en>throw head ~ take head ~</en>
-      <ru>положить голову робота ~ Взять голову робота ~</ru>
-      <by>пакласці галаву робата ~ Узяць галаву робата ~</by>
+      <en><![CDATA[throw robots head   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                        Take robots head   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></en>
+      <ru><![CDATA[положить голову робота   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                   Взять голову робота   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></ru>
+      <by><![CDATA[пакласці галаву робата   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                   Узяць галаву робата   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></by>
     </Translates>
   </Key>
   <Key Name="Test21">
