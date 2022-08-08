@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Keys CurrentLanguage="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Keys CurrentLanguage="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Key Name="Нажмите любyю клавишу...">
     <Translates>
       <en>Press any key...</en>
@@ -197,6 +197,13 @@ Kostya Stelmakov</en>
       <en>Start again</en>
       <ru>Начать заново</ru>
       <by>Пачаць зноў</by>
+    </Translates>
+  </Key>
+  <Key Name="Русский">
+    <Translates>
+      <en>English</en>
+      <ru>Русский</ru>
+      <by>Беларуская</by>
     </Translates>
   </Key>
 </Keys>

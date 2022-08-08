@@ -20,15 +20,13 @@ public class StartMenu : MonoBehaviour
     private GameObject _comics4Text;
     private int keyPressCounter=0;
     private int slidePressCounter = 1;
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+
     void Update()
     {
-        if (Input.anyKeyDown && _mainMenu.activeSelf)
+        if (Input.anyKeyDown && _mainMenu.activeSelf && !Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 Debug.Log("QUIT");
                 Application.Quit();
