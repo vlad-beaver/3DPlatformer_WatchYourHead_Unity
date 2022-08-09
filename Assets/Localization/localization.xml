@@ -180,7 +180,7 @@ Kostya Stelmakov</en>
   </Key>
   <Key Name="положить голову робота">
     <Translates>
-      <en><![CDATA[throw robots head   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                        Take robots head   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></en>
+      <en><![CDATA[throw robots head   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                                Take robots head   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></en>
       <ru><![CDATA[положить голову робота   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                   Взять голову робота   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></ru>
       <by><![CDATA[пакласці галаву робата   <voffset=0.3em><size=150%><sprite=1/></size></voffset>                   Узяць галаву робата   <voffset=0.3em><size=150%><sprite=0/></size></voffset>]]></by>
     </Translates>
