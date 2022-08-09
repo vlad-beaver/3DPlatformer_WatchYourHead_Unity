@@ -30,7 +30,7 @@ public class LocalizationManager : MonoBehaviour
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.LoadXml(textFile.text);
         xmlDocument["Keys"].Attributes["CurrentLanguage"].Value = id.ToString();
-        xmlDocument.Save(AssetDatabase.GetAssetPath(textFile));
+        xmlDocument.Save(textFile.name);
 
         OnLanguageChange?.Invoke();
     }
