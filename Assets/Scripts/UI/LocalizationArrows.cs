@@ -11,7 +11,14 @@ public class LocalizationArrows : MonoBehaviour
 
     public void localizeText(int increment)
     {
-        int newLocalizationId = (LocalizationManager.SelectedLanguage + increment + _numberOfLanguages) % _numberOfLanguages;
-        _localizationManager.SetLanguage(newLocalizationId);
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
+            return;
+        }
+        else
+        {
+            int newLocalizationId = (LocalizationManager.SelectedLanguage + increment + _numberOfLanguages) % _numberOfLanguages;
+            _localizationManager.SetLanguage(newLocalizationId);
+        }
     }
 }
